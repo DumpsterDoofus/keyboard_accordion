@@ -1,0 +1,1 @@
+This Lekker switch footprint was copied from https://github.com/heiso/macrolev/blob/4588fdf632f48bf52b3a35bd9163b06c91cafc19/kicad/Rev%202.0/libraries/SW_MX_Lekker/SW_MX_Lekker.kicad_mod. I haven't been able to find a corresponding symbol for it.
