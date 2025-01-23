@@ -12,7 +12,8 @@ Virtually nothing is done yet. Status:
 
 ## Developers
 
-Clone the repo using `git clone --recurse-submodules https://github.com/DumpsterDoofus/keyboard_accordion.git`.
+To clone the repo:
 
-Open `pcb/pcb.kicad_pro` in KiCad. In Preferences > Manage Symbol Libraries > Project Specific Libraries, 
-TODO: Add steps to import KiCad libraries/footprints.
+```sh
+git clone --recurse-submodules https://github.com/DumpsterDoofus/keyboard_accordion.git
+```
