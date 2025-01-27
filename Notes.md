@@ -111,3 +111,38 @@ Power adapters:
         5V 2A, 5.5mm x 2.5mm
 
 Defining ground and power planes on PCB: https://www.youtube.com/watch?v=RyZklHTfkQg
+
+## Part Numbers
+
+Can search for part numbers at https://www.snapeda.com.
+
+100 nF ceramic capacitor:
+GCM155R71C104KA55D
+https://jlcpcb.com/partdetail/MurataElectronics-GCM155R71C104KA55D/C85857
+https://www.snapeda.com/parts/GCM155R71C104KA55D/Murata/view-part/?ref=rel_components
+
+
+10uF capacitor:
+GRM21BC81A106KE18L
+https://jlcpcb.com/partdetail/3515478-GRM21BC81A106KE18L/C3011661
+https://www.snapeda.com/parts/GRM21BC81A106KE18L/Murata/view-part/
+
+Multiplexer:
+CD74HC4067SM
+https://jlcpcb.com/partdetail/TexasInstruments-CD74HC4067SM96/C98457
+Footprint/symbol in KiCad standard library
+
+Hall sensor:
+GH39FKSW
+https://jlcpcb.com/partdetail/GoChip_Elec_Tech_Shanghai-GH39FKSW/C266230
+Footprint/symbol in KiCad standard library
+
+Barrel connector:
+EJ508A
+https://jlcpcb.com/partdetail/3567038-EJ508A/C3030986
+https://www.snapeda.com/parts/EJ508A/MPD%20(Memory%20Protection%20Devices)/view-part/
+
+Linear regulator:
+https://jlcpcb.com/partdetail/Advanced_MonolithicSystems-AMS1117_33/C6186
+AMS1117-3.3
+Footprint/symbol in KiCad standard library
