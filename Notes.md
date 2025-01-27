@@ -93,3 +93,21 @@ https://www.pjrc.com/teensy/card11a_rev4_web.pdf
 
 https://www.modartt.com/pianoteq
     Has Bosendorfer and other sound samples, seems like it can be driven by MIDI input
+
+## Power
+
+The Teensy has a 3.3V output, but a commenter suggested to avoid using it for large current draw (https://forum.pjrc.com/index.php?threads/beginner-schematic-review-hall-effect-keyboard.76407/post-354362). So instead am going to power Teensy with USB, and other components with 5V DC power adapter dropped to 3.3V using a linear regulator.
+
+Hall sensors will likely consume 4.2 mA * 192 keys = 800 mA. Multiplexers supposedly draw less than 1 mA (https://www.lcsc.com/datasheet/lcsc_datasheet_1810010611_Texas-Instruments-CD74HC4067SM96_C98457.pdf search for "quiescent").
+
+Barrel connector: two most common sizes are 5.5mm/2.5mm and 5.5mm/2.1mm.
+    https://jlcpcb.com/partdetail/XkbConnection-DC_018_2_5A_25/C2880553
+        2.5mm 5.5mm 2.5A
+
+Power adapters:
+    https://www.sparkfun.com/power-supply-5v-4a.html
+        5V 4A, center-positive 5.5x2.1mm barrel connector
+    https://www.amazon.com/SUICINGU-100-240V-Converter-Transformer-5-5x2-5mm/dp/B0B6Z4XBVX?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A3G522G8JZO3PH&gQT=1
+        5V 2A, 5.5mm x 2.5mm
+
+Defining ground and power planes on PCB: https://www.youtube.com/watch?v=RyZklHTfkQg
