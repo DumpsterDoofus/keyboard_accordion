@@ -5,4 +5,5 @@
   (lib (name "EJ508A")(type "KiCad")(uri "${KIPRJMOD}/../library/EJ508A/EJ508A.kicad_sym")(options "")(descr ""))
   (lib (name "GRM21BC81A106KE18L")(type "KiCad")(uri "${KIPRJMOD}/../library/GRM21BC81A106KE18L/GRM21BC81A106KE18L.kicad_sym")(options "")(descr ""))
   (lib (name "GCM155R71C104KA55D")(type "KiCad")(uri "${KIPRJMOD}/../library/GCM155R71C104KA55D/GCM155R71C104KA55D.kicad_sym")(options "")(descr ""))
+  (lib (name "RC0603JR-071KL")(type "KiCad")(uri "${KIPRJMOD}/../library/RC0603JR-071KL/RC0603JR-071KL.kicad_sym")(options "")(descr ""))
 )

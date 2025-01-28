@@ -127,6 +127,11 @@ GRM21BC81A106KE18L
 https://jlcpcb.com/partdetail/3515478-GRM21BC81A106KE18L/C3011661
 https://www.snapeda.com/parts/GRM21BC81A106KE18L/Murata/view-part/
 
+1000 ohm resistor:
+RC0603JR-071KL
+https://jlcpcb.com/partdetail/Yageo-RC0603JR071KL/C14676
+https://www.snapeda.com/parts/RC0603JR-071KL/Yageo/view-part/
+
 Multiplexer:
 CD74HC4067SM
 https://jlcpcb.com/partdetail/TexasInstruments-CD74HC4067SM96/C98457
@@ -146,3 +151,6 @@ Linear regulator:
 https://jlcpcb.com/partdetail/Advanced_MonolithicSystems-AMS1117_33/C6186
 AMS1117-3.3
 Footprint/symbol in KiCad standard library
+
+Teensy 4.1 with pins soldered
+https://www.pjrc.com/store/teensy41_pins.html
