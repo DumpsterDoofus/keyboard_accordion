@@ -130,7 +130,7 @@
 	(net 48 "Net-(U0-37_CS)")
 	(net 49 "Net-(U0-13_SCK_LED)")
 	(net 50 "Net-(U0-25_A11_RX6_SDA2)")
-	(footprint "easyeda2kicad:C0402"
+	(footprint "jlcpcb:C0402"
 		(layer "F.Cu")
 		(uuid "06a19173-1917-4487-b693-36ffd11aec66")
 		(at 81.992 54.538371)
@@ -156,7 +156,7 @@
 				)
 			)
 		)
-		(property "Footprint" "easyeda2kicad:C0402"
+		(property "Footprint" "jlcpcb:C0402"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -353,7 +353,7 @@
 			(pintype "input")
 			(uuid "75a60fac-9fd1-4bec-a650-35fc720a4101")
 		)
-		(model "${EASYEDA2KICAD}/easyeda2kicad.3dshapes/C0402_L1.0-W0.5-H0.5.wrl"
+		(model "${EASYEDA2KICAD}/jlcpcb.3dshapes/C0402_L1.0-W0.5-H0.5.wrl"
 			(offset
 				(xyz 0 -0 -0)
 			)
@@ -365,7 +365,7 @@
 			)
 		)
 	)
-	(footprint "easyeda2kicad:DC-IN-TH_DC-005-A250"
+	(footprint "jlcpcb:DC-IN-TH_DC-005-A250"
 		(layer "F.Cu")
 		(uuid "0f16b4a8-1871-443b-a399-82b7803e38a1")
 		(at 42.7625 63.1315)
@@ -391,7 +391,7 @@
 				)
 			)
 		)
-		(property "Footprint" "easyeda2kicad:DC-IN-TH_DC-005-A250"
+		(property "Footprint" "jlcpcb:DC-IN-TH_DC-005-A250"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -570,7 +570,7 @@
 			(pintype "unspecified")
 			(uuid "a4b8622b-8e12-4017-a2b1-3c6ac1608d31")
 		)
-		(model "${EASYEDA2KICAD}/easyeda2kicad.3dshapes/DC-IN-TH_DC-005-A250.wrl"
+		(model "${EASYEDA2KICAD}/jlcpcb.3dshapes/DC-IN-TH_DC-005-A250.wrl"
 			(offset
 				(xyz -3.5 2.2 0)
 			)
@@ -924,7 +924,7 @@
 			(uuid "f343f680-5b60-401f-baf0-9b19f6b989d6")
 		)
 	)
-	(footprint "easyeda2kicad:HDR-TH_24P-P2.54-V-F"
+	(footprint "jlcpcb:HDR-TH_24P-P2.54-V-F"
 		(layer "F.Cu")
 		(uuid "2d900aca-e564-495b-87f3-2ac25f3a8a6d")
 		(at 64.466 31.75)
@@ -950,7 +950,7 @@
 				)
 			)
 		)
-		(property "Footprint" "easyeda2kicad:HDR-TH_24P-P2.54-V-F"
+		(property "Footprint" "jlcpcb:HDR-TH_24P-P2.54-V-F"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -1339,7 +1339,7 @@
 			(pintype "unspecified")
 			(uuid "29a0e702-b937-464b-81b8-72a53915668f")
 		)
-		(model "${EASYEDA2KICAD}/easyeda2kicad.3dshapes/HDR-TH_24P-P2.54-V-F.wrl"
+		(model "${EASYEDA2KICAD}/jlcpcb.3dshapes/HDR-TH_24P-P2.54-V-F.wrl"
 			(offset
 				(xyz 0 -0 0)
 			)
@@ -1351,7 +1351,7 @@
 			)
 		)
 	)
-	(footprint "easyeda2kicad:HDR-TH_24P-P2.54-V-F"
+	(footprint "jlcpcb:HDR-TH_24P-P2.54-V-F"
 		(layer "F.Cu")
 		(uuid "39b353e7-e9dc-4779-8a01-9aa2b15751a9")
 		(at 64.466 46.99)
@@ -1377,7 +1377,7 @@
 				)
 			)
 		)
-		(property "Footprint" "easyeda2kicad:HDR-TH_24P-P2.54-V-F"
+		(property "Footprint" "jlcpcb:HDR-TH_24P-P2.54-V-F"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -1766,7 +1766,7 @@
 			(pintype "unspecified")
 			(uuid "695d69b2-4af2-4665-959e-ba937fdde2b8")
 		)
-		(model "${EASYEDA2KICAD}/easyeda2kicad.3dshapes/HDR-TH_24P-P2.54-V-F.wrl"
+		(model "${EASYEDA2KICAD}/jlcpcb.3dshapes/HDR-TH_24P-P2.54-V-F.wrl"
 			(offset
 				(xyz 0 -0 0)
 			)
@@ -2006,7 +2006,7 @@
 			(uuid "4aeb3512-4982-4fe1-b024-5dd958f4986c")
 		)
 	)
-	(footprint "easyeda2kicad:SSOP-24_L8.1-W5.3-P0.65-LS7.8-BL"
+	(footprint "jlcpcb:SSOP-24_L8.1-W5.3-P0.65-LS7.8-BL"
 		(layer "F.Cu")
 		(uuid "50a0d847-1562-4711-aa2b-8281fd543a46")
 		(at 53.544 76.962)
@@ -2032,7 +2032,7 @@
 				)
 			)
 		)
-		(property "Footprint" "easyeda2kicad:SSOP-24_L8.1-W5.3-P0.65-LS7.8-BL"
+		(property "Footprint" "jlcpcb:SSOP-24_L8.1-W5.3-P0.65-LS7.8-BL"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -2396,7 +2396,7 @@
 			(pintype "unspecified")
 			(uuid "e401b6c4-adc7-4bbf-836e-3c10afe1f6bb")
 		)
-		(model "${EASYEDA2KICAD}/easyeda2kicad.3dshapes/SSOP-24_L8.2-W5.3-H1.8-LS7.8-P0.65.wrl"
+		(model "${EASYEDA2KICAD}/jlcpcb.3dshapes/SSOP-24_L8.2-W5.3-H1.8-LS7.8-P0.65.wrl"
 			(offset
 				(xyz 0 -0 -0)
 			)
@@ -2408,7 +2408,7 @@
 			)
 		)
 	)
-	(footprint "easyeda2kicad:SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR"
+	(footprint "jlcpcb:SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR"
 		(layer "F.Cu")
 		(uuid "65e1492b-e202-4592-8a4f-0df91bbb35ec")
 		(at 92.152 75.946)
@@ -2434,7 +2434,7 @@
 				)
 			)
 		)
-		(property "Footprint" "easyeda2kicad:SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR"
+		(property "Footprint" "jlcpcb:SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -2597,7 +2597,7 @@
 			(pintype "unspecified")
 			(uuid "bf7fabe8-f99d-463f-a8bc-c2b08739d20c")
 		)
-		(model "${EASYEDA2KICAD}/easyeda2kicad.3dshapes/SOT-23-3P_L2.9-W1.3-H1.0-LS2.4-P0.95.wrl"
+		(model "${EASYEDA2KICAD}/jlcpcb.3dshapes/SOT-23-3P_L2.9-W1.3-H1.0-LS2.4-P0.95.wrl"
 			(offset
 				(xyz -861.57 843.28 -0)
 			)
@@ -2609,7 +2609,7 @@
 			)
 		)
 	)
-	(footprint "easyeda2kicad:SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR"
+	(footprint "jlcpcb:SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR"
 		(layer "F.Cu")
 		(uuid "6deb78f7-7639-49cf-bc04-88c4986cff80")
 		(at 71.832 75.946)
@@ -2635,7 +2635,7 @@
 				)
 			)
 		)
-		(property "Footprint" "easyeda2kicad:SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR"
+		(property "Footprint" "jlcpcb:SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -2798,7 +2798,7 @@
 			(pintype "unspecified")
 			(uuid "af9d2e13-4e1c-4035-af46-121dbdeb2117")
 		)
-		(model "${EASYEDA2KICAD}/easyeda2kicad.3dshapes/SOT-23-3P_L2.9-W1.3-H1.0-LS2.4-P0.95.wrl"
+		(model "${EASYEDA2KICAD}/jlcpcb.3dshapes/SOT-23-3P_L2.9-W1.3-H1.0-LS2.4-P0.95.wrl"
 			(offset
 				(xyz -861.57 843.28 -0)
 			)
@@ -2810,7 +2810,7 @@
 			)
 		)
 	)
-	(footprint "easyeda2kicad:SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR"
+	(footprint "jlcpcb:SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR"
 		(layer "F.Cu")
 		(uuid "6f1e2aac-9c73-4f27-93b5-1db8543f3fb8")
 		(at 81.992 58.348371)
@@ -2836,7 +2836,7 @@
 				)
 			)
 		)
-		(property "Footprint" "easyeda2kicad:SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR"
+		(property "Footprint" "jlcpcb:SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -2999,7 +2999,7 @@
 			(pintype "unspecified")
 			(uuid "d922eeca-56fe-42d0-bc8e-c6251923d648")
 		)
-		(model "${EASYEDA2KICAD}/easyeda2kicad.3dshapes/SOT-23-3P_L2.9-W1.3-H1.0-LS2.4-P0.95.wrl"
+		(model "${EASYEDA2KICAD}/jlcpcb.3dshapes/SOT-23-3P_L2.9-W1.3-H1.0-LS2.4-P0.95.wrl"
 			(offset
 				(xyz -861.57 843.28 -0)
 			)
@@ -3011,7 +3011,7 @@
 			)
 		)
 	)
-	(footprint "easyeda2kicad:C0402"
+	(footprint "jlcpcb:C0402"
 		(layer "F.Cu")
 		(uuid "703ca741-5e22-4c2a-bd11-ea9e01ec6bf1")
 		(at 71.832 72.136)
@@ -3037,7 +3037,7 @@
 				)
 			)
 		)
-		(property "Footprint" "easyeda2kicad:C0402"
+		(property "Footprint" "jlcpcb:C0402"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -3234,7 +3234,7 @@
 			(pintype "input")
 			(uuid "f459247c-5a6d-4369-b2b4-beef1c04cc1c")
 		)
-		(model "${EASYEDA2KICAD}/easyeda2kicad.3dshapes/C0402_L1.0-W0.5-H0.5.wrl"
+		(model "${EASYEDA2KICAD}/jlcpcb.3dshapes/C0402_L1.0-W0.5-H0.5.wrl"
 			(offset
 				(xyz 0 -0 -0)
 			)
@@ -3246,7 +3246,7 @@
 			)
 		)
 	)
-	(footprint "easyeda2kicad:TO-263-3_L8.6-W10.2-P2.54-LS14.4-TL"
+	(footprint "jlcpcb:TO-263-3_L8.6-W10.2-P2.54-LS14.4-TL"
 		(layer "F.Cu")
 		(uuid "884ef86d-4425-4183-b039-7e0097843303")
 		(at 62.18 58.42)
@@ -3272,7 +3272,7 @@
 				)
 			)
 		)
-		(property "Footprint" "easyeda2kicad:TO-263-3_L8.6-W10.2-P2.54-LS14.4-TL"
+		(property "Footprint" "jlcpcb:TO-263-3_L8.6-W10.2-P2.54-LS14.4-TL"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -3525,7 +3525,7 @@
 			(pintype "unspecified")
 			(uuid "bba1ae25-65f0-435c-8f51-10e06e390571")
 		)
-		(model "${EASYEDA2KICAD}/easyeda2kicad.3dshapes/TO-263-3_4PIN-L8.6-W10.2-H4.8-P2.54-LS14.4-TL.wrl"
+		(model "${EASYEDA2KICAD}/jlcpcb.3dshapes/TO-263-3_4PIN-L8.6-W10.2-H4.8-P2.54-LS14.4-TL.wrl"
 			(offset
 				(xyz 1.98 -0 -0)
 			)
@@ -3537,7 +3537,7 @@
 			)
 		)
 	)
-	(footprint "easyeda2kicad:R1206"
+	(footprint "jlcpcb:R1206"
 		(layer "F.Cu")
 		(uuid "949fcc00-7cad-413e-9161-a2f1636ab6e8")
 		(at 74.88 28.448)
@@ -3563,7 +3563,7 @@
 				)
 			)
 		)
-		(property "Footprint" "easyeda2kicad:R1206"
+		(property "Footprint" "jlcpcb:R1206"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -3716,7 +3716,7 @@
 			(pintype "input")
 			(uuid "2fe8a3b3-e3f5-432b-8752-6e1f26576bec")
 		)
-		(model "${EASYEDA2KICAD}/easyeda2kicad.3dshapes/R1206_L3.2-W1.6-H0.6.wrl"
+		(model "${EASYEDA2KICAD}/jlcpcb.3dshapes/R1206_L3.2-W1.6-H0.6.wrl"
 			(offset
 				(xyz -2.39 0.89 -0)
 			)
@@ -3728,7 +3728,7 @@
 			)
 		)
 	)
-	(footprint "easyeda2kicad:C0402"
+	(footprint "jlcpcb:C0402"
 		(layer "F.Cu")
 		(uuid "95bdbdce-03d3-4c67-bc24-12e95d426382")
 		(at 49.988 71.12 90)
@@ -3754,7 +3754,7 @@
 				)
 			)
 		)
-		(property "Footprint" "easyeda2kicad:C0402"
+		(property "Footprint" "jlcpcb:C0402"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -3951,7 +3951,7 @@
 			(pintype "input")
 			(uuid "a00a838d-0ae0-49b1-97cf-41b857383932")
 		)
-		(model "${EASYEDA2KICAD}/easyeda2kicad.3dshapes/C0402_L1.0-W0.5-H0.5.wrl"
+		(model "${EASYEDA2KICAD}/jlcpcb.3dshapes/C0402_L1.0-W0.5-H0.5.wrl"
 			(offset
 				(xyz 0 -0 -0)
 			)
@@ -3963,7 +3963,7 @@
 			)
 		)
 	)
-	(footprint "easyeda2kicad:C0402"
+	(footprint "jlcpcb:C0402"
 		(layer "F.Cu")
 		(uuid "9eee6084-cf62-44d5-8d28-ee66da6d1516")
 		(at 92.152 72.136)
@@ -3989,7 +3989,7 @@
 				)
 			)
 		)
-		(property "Footprint" "easyeda2kicad:C0402"
+		(property "Footprint" "jlcpcb:C0402"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -4186,7 +4186,7 @@
 			(pintype "input")
 			(uuid "842870dd-a7c5-4ada-975f-1449bce88c0f")
 		)
-		(model "${EASYEDA2KICAD}/easyeda2kicad.3dshapes/C0402_L1.0-W0.5-H0.5.wrl"
+		(model "${EASYEDA2KICAD}/jlcpcb.3dshapes/C0402_L1.0-W0.5-H0.5.wrl"
 			(offset
 				(xyz 0 -0 -0)
 			)
@@ -4312,7 +4312,7 @@
 			(uuid "eeb2c9ec-d428-4608-bdd9-8765f8a2670b")
 		)
 	)
-	(footprint "easyeda2kicad:C0603"
+	(footprint "jlcpcb:C0603"
 		(layer "F.Cu")
 		(uuid "d22b0ade-f15e-40cb-8eb5-c28b84c4f6d3")
 		(at 52.274 63.308 -90)
@@ -4338,7 +4338,7 @@
 				)
 			)
 		)
-		(property "Footprint" "easyeda2kicad:C0603"
+		(property "Footprint" "jlcpcb:C0603"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -4535,7 +4535,7 @@
 			(pintype "unspecified")
 			(uuid "ac002908-0594-48a8-bd7e-859810481428")
 		)
-		(model "${EASYEDA2KICAD}/easyeda2kicad.3dshapes/C0603_L1.6-W0.8-H0.8.wrl"
+		(model "${EASYEDA2KICAD}/jlcpcb.3dshapes/C0603_L1.6-W0.8-H0.8.wrl"
 			(offset
 				(xyz -0.5 -0.13 -0)
 			)
@@ -4547,7 +4547,7 @@
 			)
 		)
 	)
-	(footprint "easyeda2kicad:C0603"
+	(footprint "jlcpcb:C0603"
 		(layer "F.Cu")
 		(uuid "d26325d1-d98b-4d29-a898-8a604189584d")
 		(at 52.274 57.15 90)
@@ -4573,7 +4573,7 @@
 				)
 			)
 		)
-		(property "Footprint" "easyeda2kicad:C0603"
+		(property "Footprint" "jlcpcb:C0603"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -4770,7 +4770,7 @@
 			(pintype "unspecified")
 			(uuid "a66c968a-9e1b-4b8d-91ce-e7848c235543")
 		)
-		(model "${EASYEDA2KICAD}/easyeda2kicad.3dshapes/C0603_L1.6-W0.8-H0.8.wrl"
+		(model "${EASYEDA2KICAD}/jlcpcb.3dshapes/C0603_L1.6-W0.8-H0.8.wrl"
 			(offset
 				(xyz -0.5 -0.13 -0)
 			)
