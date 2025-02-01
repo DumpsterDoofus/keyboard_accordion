@@ -1,3 +1,2 @@
 numpy
-pcbnew
 easyeda2kicad

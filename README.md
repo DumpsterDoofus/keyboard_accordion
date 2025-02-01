@@ -12,18 +12,33 @@ Virtually nothing is done yet. Status:
 
 ## Developers
 
-To clone the repo:
+### To view schematic/PCB
+
+Clone the repo:
 
 ```sh
 git clone --recurse-submodules https://github.com/DumpsterDoofus/keyboard_accordion.git
 ```
 
-You can review the KiCad project and view the schematic/PCB in `kicad/3_key`.
+You can open the KiCad project at `kicad/3_key` to view the schematic/PCB.
 
-If you also want to download the KiCad libraries:
+For the PCB, if you want 3D models of parts to render, in Preferences > Configure Paths, define a variable named `EASYEDA2KICAD` with value `${KIPRJMOD}/../library`.
 
-```
+> TODO: Is there a way to source control this variable?
+
+### To modify schematic/PCB
+
+Download Python dependencies:
+
+```sh
 python3 -m venv .venv
 source .venv/bin/activate
 pip install --requirement requirements.txt
 ```
+
+To modify the JLCPCB parts list:
+
+```sh
+./scripts/download_jlcpcb_parts.sh
+```
+
