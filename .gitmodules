@@ -1,6 +1,6 @@
 [submodule "pcb/footprints/teensy.pretty"]
-	path = kicad/library/footprints/teensy.pretty
+	path = kicad/library/teensy.pretty
 	url = https://github.com/XenGi/teensy.pretty
 [submodule "pcb/symbols/teensy_library"]
-	path = kicad/library/symbols/teensy_library
+	path = kicad/library/teensy_library
 	url = https://github.com/XenGi/teensy_library

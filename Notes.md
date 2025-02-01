@@ -165,31 +165,3 @@ https://www.pjrc.com/store/teensy41_pins.html
 ## JLCPCB
 
 https://www.youtube.com/watch?v=OQhkx3zeJaE
-
-https://github.com/uPesy/easyeda2kicad.py
-
-```sh
-# DC barrel jack
-easyeda2kicad --full --lcsc_id=C720558
-
-# Linear regulator
-easyeda2kicad --full --lcsc_id=C45908
-
-# 10 uF capacitor
-easyeda2kicad --full --lcsc_id=C1691
-
-# 24 pin header
-easyeda2kicad --full --lcsc_id=C2883741
-
-# 1k resistor
-easyeda2kicad --full --lcsc_id=C4410
-
-# Multiplexer
-easyeda2kicad --full --lcsc_id=C98457
-
-# Hall sensor
-easyeda2kicad --full --lcsc_id=C266230
-
-# 100 nF capacitor
-easyeda2kicad --full --lcsc_id=C155422
-```
