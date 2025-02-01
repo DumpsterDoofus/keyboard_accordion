@@ -17,3 +17,13 @@ To clone the repo:
 ```sh
 git clone --recurse-submodules https://github.com/DumpsterDoofus/keyboard_accordion.git
 ```
+
+You can review the KiCad project and view the schematic/PCB in `kicad/3_key`.
+
+If you also want to download the KiCad libraries:
+
+```
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --requirement requirements.txt
+```

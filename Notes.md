@@ -12,7 +12,7 @@ For the Orfey accordion:
 
 On the mechanical keyboard, there is a little space between the switches, so we could theoretically make the spacing denser than the Roland, but I don't think this would make sense.
 
-Going to try 20 mm horizontal spacing and 20 mm * sin(2*pi/6) = 17.32 mm vertical spacing.
+Going to try 800 mil = 20.32 mm horizontal spacing and 800 mil * sin(2*pi/6) = 17.5976 mm vertical spacing.
 
 https://en.wikipedia.org/wiki/Scientific_pitch_notation
     88 keys on normal keyboard (MIDI number 21-108 in table), we could do 96 (MIDI Number 17-112, F0-E8, 8 octaves).
@@ -151,6 +151,45 @@ Linear regulator:
 https://jlcpcb.com/partdetail/Advanced_MonolithicSystems-AMS1117_33/C6186
 AMS1117-3.3
 Footprint/symbol in KiCad standard library
+or (increases max current from 1A to 3A)
+https://jlcpcb.com/partdetail/46911-AMS1085CM_33/C45908
+AMS1085CM-3.3
+
+Socket (based on https://forum.pjrc.com/index.php?threads/any-tips-suggestions-or-experience-having-solutions-manufactured-w-a-teensy.75913/post-354631)
+    https://jlcpcb.com/partdetail/XkbConnection-X6511FV_24C85D32/C2883741
+    600 mil separation between the two rows (see "Dimensions" section at https://www.pjrc.com/store/teensy41.html#tech), so use mil units on PCB
 
 Teensy 4.1 with pins soldered
 https://www.pjrc.com/store/teensy41_pins.html
+
+## JLCPCB
+
+https://www.youtube.com/watch?v=OQhkx3zeJaE
+
+https://github.com/uPesy/easyeda2kicad.py
+
+```sh
+# DC barrel jack
+easyeda2kicad --full --lcsc_id=C720558
+
+# Linear regulator
+easyeda2kicad --full --lcsc_id=C45908
+
+# 10 uF capacitor
+easyeda2kicad --full --lcsc_id=C1691
+
+# 24 pin header
+easyeda2kicad --full --lcsc_id=C2883741
+
+# 1k resistor
+easyeda2kicad --full --lcsc_id=C4410
+
+# Multiplexer
+easyeda2kicad --full --lcsc_id=C98457
+
+# Hall sensor
+easyeda2kicad --full --lcsc_id=C266230
+
+# 100 nF capacitor
+easyeda2kicad --full --lcsc_id=C155422
+```
