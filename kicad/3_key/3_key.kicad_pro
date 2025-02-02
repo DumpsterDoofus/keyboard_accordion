@@ -486,11 +486,11 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "../../../../Documents/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
-      "svg": "",
+      "svg": "../../../../Documents/",
       "vrml": ""
     },
     "page_layout_descr_file": ""

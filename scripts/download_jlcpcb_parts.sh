@@ -7,16 +7,28 @@ lcsc_ids=(
     # DC barrel jack
     "C720558"
 
-    # Linear regulator
-    "C45908"
+    # Step down regulator
+    "C479075"
 
-    # 10 uF capacitor
-    "C1691"
+    # 10 uF capacitor (16V X5R ±10% 0805)
+    "C1713"
+
+    # 22 uF capacitor (16V X5R ±10% 1206)
+    "C90146"
+
+    # 100k resistor (100mW 75V ±1% 0603)
+    "C14675"
+
+    # 22.1k resistor (100mW 75V ±1% 0603)
+    "C137768"
+
+    # 220 pF capacitor (50V X7R ±10% 0603)
+    "C107081"
 
     # 24 pin header
     "C2883741"
 
-    # 1k resistor
+    # 1k resistor (250mW 200V ±1% 1206)
     "C4410"
 
     # Multiplexer
@@ -25,8 +37,8 @@ lcsc_ids=(
     # Hall sensor
     "C266230"
 
-    # 100 nF capacitor
-    "C155422"
+    # 100 nF capacitor (25V X7R ±10% 0603)
+    "C1590"
 )
 
 for lcsc_id in "${lcsc_ids[@]}"; do
