@@ -39,7 +39,7 @@
 	(pad 2 thru_hole circle (at -26.67 0.00 0.00) (size 1.70 1.70) (layers *.Cu *.Mask)(drill 1.1000231999999999))
 	(pad 1 thru_hole rect (at -29.21 0.00 0.00) (size 1.70 1.52) (layers *.Cu *.Mask)(drill 1.1000231999999999))
 	(fp_circle (center -30.68 1.20) (end -30.65 1.20) (layer F.Fab) (width 0.06))
-	(model "kicad/library/jlcpcb.3dshapes/HDR-TH_24P-P2.54-V-F.wrl"
+	(model "../library/jlcpcb.3dshapes/HDR-TH_24P-P2.54-V-F.wrl"
 		(offset (xyz 0.000 -0.000 0.000))
 		(scale (xyz 1 1 1))
 		(rotate (xyz 0 0 0))

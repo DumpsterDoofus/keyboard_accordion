@@ -16,19 +16,22 @@ lcsc_ids=(
     # 22 uF capacitor (16V X5R ±10% 1206)
     "C90146"
 
-    # 100k resistor (100mW 75V ±1% 0603)
+    # 100 kΩ resistor (100mW 75V ±1% 0603)
     "C14675"
 
-    # 22.1k resistor (100mW 75V ±1% 0603)
+    # 22.1 kΩ resistor (100mW 75V ±1% 0603)
     "C137768"
 
     # 220 pF capacitor (50V X7R ±10% 0603)
     "C107081"
 
+    # 4.7 uH inductor (4.3A 7A saturation ±20% 4.1x4.1mm)
+    "C39676083"
+
     # 24 pin header
     "C2883741"
 
-    # 1k resistor (250mW 200V ±1% 1206)
+    # 1 kΩ resistor (250mW 200V ±1% 1206)
     "C4410"
 
     # Multiplexer

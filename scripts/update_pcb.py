@@ -8,9 +8,12 @@ button_positions = [
     [6000 + 800, 3000],
 ]
 
+button_positions.reverse()
+
 pcb_path = 'kicad/3_key/3_key.kicad_pcb'
 board = pcbnew.LoadBoard(pcb_path)
 for index, position in enumerate(button_positions):
+    index += 1
     switch = board.FindFootprintByReference(f'REF{index}')
     sensor = board.FindFootprintByReference(f'S{index}')
     capacitor = board.FindFootprintByReference(f'C{index}')

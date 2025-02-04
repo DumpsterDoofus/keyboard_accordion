@@ -22,7 +22,7 @@
 	(fp_arc (start 1.08 0.40) (end 1.08 0.71) (angle -90.00) (layer F.SilkS) (width 0.25))
 	(fp_arc (start -1.08 0.40) (end -1.39 0.40) (angle -90.00) (layer F.SilkS) (width 0.25))
 	(fp_arc (start -1.08 -0.40) (end -1.08 -0.71) (angle -90.00) (layer F.SilkS) (width 0.25))
-	(model "kicad/library/jlcpcb.3dshapes/C0603_L1.6-W0.8-H0.8.wrl"
+	(model "../library/jlcpcb.3dshapes/C0603_L1.6-W0.8-H0.8.wrl"
 		(offset (xyz -0.500 -0.130 -0.000))
 		(scale (xyz 1 1 1))
 		(rotate (xyz 0 0 0))
