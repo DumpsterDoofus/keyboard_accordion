@@ -26,13 +26,15 @@ https://github.com/rana-sylvatica/circle-keycaps
 
 https://gateron.com/u_file/2312/26/file/GATERONMagneticOrangeSwitch-KS-20TO10B050NW-Y64.pdf
     Schematic for switch
+    Appears to fit in a 14mm x 14mm mounting plate
 
 https://github.com/sssata/fluxpad/tree/fluxpad-2/ECAD/FluxpadKicad
 https://github.com/roxandtol/roxpad
     Uses Lekker switches, might be able to copy?
 
 
-
+https://www.reddit.com/r/AskElectronics/comments/1igsc1m/is_a_pullup_resistor_needed_for_an_enable_pin/?
+https://www.reddit.com/r/PrintedCircuitBoard/comments/1ifec3p/review_request_teensy_41_hall_effect_minikeyboard/
 https://www.kicad.org/download/linux/
 
 https://github.com/heiso/macrolev
@@ -109,6 +111,10 @@ Power adapters:
         5V 4A, center-positive 5.5x2.1mm barrel connector
     https://www.amazon.com/SUICINGU-100-240V-Converter-Transformer-5-5x2-5mm/dp/B0B6Z4XBVX?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A3G522G8JZO3PH&gQT=1
         5V 2A, 5.5mm x 2.5mm
+    https://www.aliexpress.us/item/3256806421387301.html?spm=a2g0o.productlist.main.11.7a173d1frfWwjT&algo_pvid=45d6adf5-7cdc-4983-bab7-b52151c5c3ea&algo_exp_id=45d6adf5-7cdc-4983-bab7-b52151c5c3ea-5&pdp_ext_f=%7B%22order%22%3A%227%22%2C%22eval%22%3A%221%22%7D&pdp_npi=4%40dis%21USD%218.73%215.73%21%21%218.73%215.73%21%402103146f17393252582881426ef216%2112000037806734082%21sea%21US%210%21ABX&curPageLogUid=xfbv3krZe5tU&utparam-url=scene%3Asearch%7Cquery_from%3A
+        3.3V 3A, 5.5mm x 2.5mm
+    https://www.powerstream.com/ac-0330.htm
+        3.3V 3A, 5.5mm x 2.1mm
 
 Defining ground and power planes on PCB: https://www.youtube.com/watch?v=RyZklHTfkQg
 
@@ -165,3 +171,11 @@ https://www.pjrc.com/store/teensy41_pins.html
 ## JLCPCB
 
 https://www.youtube.com/watch?v=OQhkx3zeJaE
+
+## Enclosure
+
+Macrolev CAD: https://cad.onshape.com/documents/2af2025c576c4f084cb26625/w/9564bb1d9dfbd4b4af4294c8/e/e2406b8294380372b9116245
+Check out Fluxpad CAD directory, it uses Lekker switches
+
+## Key plate
+

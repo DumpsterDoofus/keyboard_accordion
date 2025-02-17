@@ -5,6 +5,7 @@
 # These "LCSC IDs" show up on JLCPCB's website as "JLCPCB Part #". On LSCS (another website run by the same company), they show up as "LCSC Part #".
 lcsc_ids=(
     # DC barrel jack
+    # TODO: Replace with C2880553?
     "C720558"
 
     # Step down regulator
