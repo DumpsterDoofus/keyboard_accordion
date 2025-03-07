@@ -486,12 +486,15 @@ void setup()
     load_config();
 }
 
+std::vector<int> commands = {};
+
 void loop()
 {
     if (Serial.available())
     {
-        auto command = static_cast<Command>(Serial.read());
-        switch (command)
+        auto command = Serial.read();
+        commands.push_back(command);
+        switch (static_cast<Command>(command))
         {
         case Command::BeginCalibrating:
             begin_calibrating();
@@ -516,7 +519,7 @@ void loop()
         default:
             // TODO: Should this raise an exception? What will the exception do to the Teensy?
             Serial.print("Unexpected command, this is a bug: ");
-            Serial.println(static_cast<int>(config.playing_mode));
+            Serial.println(command);
             break;
         }
 
