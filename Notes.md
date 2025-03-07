@@ -118,6 +118,9 @@ Power adapters:
 
 Defining ground and power planes on PCB: https://www.youtube.com/watch?v=RyZklHTfkQg
 
+Ribbon cables:
+https://www.pololu.com/category/298/ribbon-cable-premium-jumper-wires
+
 ## Part Numbers
 
 Can search for part numbers at https://www.snapeda.com.

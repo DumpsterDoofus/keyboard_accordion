@@ -4,9 +4,11 @@
 
 # These "LCSC IDs" show up on JLCPCB's website as "JLCPCB Part #". On LSCS (another website run by the same company), they show up as "LCSC Part #".
 lcsc_ids=(
-    # DC barrel jack
-    # TODO: Replace with C2880553?
+    # DC barrel jack (2.5mm 6.3mm)
     "C720558"
+
+    # DC barrel jack (2.1mm 6.3mm)
+    "C7498153"
 
     # Step down regulator
     "C479075"
@@ -29,8 +31,14 @@ lcsc_ids=(
     # 4.7 uH inductor (4.3A 7A saturation ±20% 4.1x4.1mm)
     "C39676083"
 
-    # 24 pin header
+    # 24 pin header (top-facing)
     "C2883741"
+
+    # 14 pin header (side-facing)
+    "C2897396"
+
+    # 14 pin header (top-facing)
+    "C18078135"
 
     # 1 kΩ resistor (250mW 200V ±1% 1206)
     "C4410"

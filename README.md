@@ -4,11 +4,10 @@ This is a prototype keyboard MIDI controller. It uses a 6-row B-system [chromati
 
 Virtually nothing is done yet. Status:
 
-* Schematic: Exists but likely broken.
-* PCB layout: TODO.
-* Firmware: TODO.
-* Build/test: TODO.
-* Expand from 2 octaves to 8 octaves: TODO.
+* 3-key prototype
+    * Done: Schematic, PCB layout/manufacturing, firmware and electrical testing: Done.
+    * TODO: Key plate, case.
+* 192-key final version: TODO.
 
 ## Developers
 

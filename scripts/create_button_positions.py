@@ -34,7 +34,7 @@ def get_button_positions(
     reordered_positions = []
     indices = set()
     for i in range(6):
-        flip = i % 2 == 0
+        flip = i % 2 == 1
         offset = 7 if flip else 0
         multiplier = -1 if flip else 1
         for j in range(8):
@@ -55,7 +55,7 @@ def get_button_positions(
 # Units are in mils.
 button_positions = get_button_positions(
     # Edit if necessary to avoid collision with other parts on PCB.
-    top_left_button_position=[0, 0],
+    top_left_button_position=[3000, 6000],
 
     # 800 mils is 20.32 mm, which is a reasonable (but slightly larger than traditional) distance between accordion keys.
     button_spacing=800)

@@ -1,0 +1,8 @@
+[package]
+name = "realtime_plot_readings"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+macroquad = "0.4.13"
+serialport = "4.7.0"
