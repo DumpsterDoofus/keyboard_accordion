@@ -529,6 +529,7 @@ void loop()
             Serial.print(command);
             Serial.print(',');
         }
+        Serial.println();
     }
 
     // TODO: The below code is commented out because it doesn't seem to work. The intent was to read the external 3.3V to determine whether external power was connected, and disable/enable the multiplexers accordingly. However, in practice it appears that the first time the multiplexers are driven high, there is some kind of parasitic draw (?) that bleeds into the power plane that causes the voltage to read high, even after the AC adapter is disconnected.
