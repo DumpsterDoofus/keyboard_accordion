@@ -4,6 +4,7 @@ use std::{
     time::Duration,
 };
 
+use anyhow::{Context, Result};
 use clap::{Parser, Subcommand};
 use serialport::SerialPort;
 
@@ -17,6 +18,9 @@ use serialport::SerialPort;
 struct Cli {
     #[command(subcommand)]
     command: Command,
+
+    #[arg(short, long, default_value = "/dev/ttyACM0")]
+    serial_port_path: String,
 }
 
 #[derive(Subcommand)]
@@ -44,13 +48,18 @@ enum Command {
     },
 }
 
-fn main() {
+fn main() -> Result<()> {
     let cli = Cli::parse();
 
-    let serial_port = serialport::new("/dev/ttyACM0", 0)
+    let serial_port = serialport::new(&cli.serial_port_path, 0)
         .timeout(Duration::from_millis(1000))
         .open()
-        .expect("Failed to open serial port");
+        .with_context(|| {
+            format!(
+                "Failed to open serial port at path {}",
+                &cli.serial_port_path
+            )
+        })?;
 
     match &cli.command {
         Command::BeginCalibrating => send(serial_port, 0),
@@ -62,12 +71,21 @@ fn main() {
     }
 }
 
-fn log(serial_port: Box<dyn SerialPort>, file_path: &str) {
+fn log(serial_port: Box<dyn SerialPort>, file_path: &str) -> Result<()> {
+    let file = File::create(file_path)
+        .with_context(|| format!("Failed to open file at path {file_path}"))?;
     let mut reader = BufReader::new(serial_port);
-    let mut writer = BufWriter::new(File::create(file_path).unwrap());
-    copy(&mut reader, &mut writer).unwrap();
+    let mut writer = BufWriter::new(file);
+
+    println!("Writing serial output to log file at {file_path}");
+    copy(&mut reader, &mut writer).context("Error occurred while writing data to file.")?;
+    Ok(())
 }
 
-fn send(mut serial_port: Box<dyn SerialPort>, value: u8) {
-    serial_port.write_all(&[value]).unwrap();
+fn send(mut serial_port: Box<dyn SerialPort>, value: u8) -> Result<()> {
+    serial_port
+        .write_all(&[value])
+        .context("Failed to send data to serial port.")?;
+    println!("Sent command.");
+    Ok(())
 }
