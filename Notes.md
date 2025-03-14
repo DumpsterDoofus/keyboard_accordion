@@ -182,3 +182,58 @@ Check out Fluxpad CAD directory, it uses Lekker switches
 
 ## Key plate
 
+https://lightburnsoftware.com/products/lightburn-core
+    Does lab have this control software already, or something else?
+https://www.youtube.com/watch?v=0z4GghpBlHc
+https://smkeyboards.com/products/wooting-60he-plate
+    Plate thickness 1.5mm, says 1.6mm may work
+https://wooting.io/post/lekker-progress-not-so-lekker-virus-lekker-update-3
+    Square holes, 14mm x 14mm
+Maxicure glue?
+
+https://houstonacrylic.com/collections/1-8-sheet-acrylic/products/1-8-clear-acrylic
+    1/8 x 12 x 19 $5.49
+    1/8 x 24 x 35 $21.99
+        Might need this size for bottom plate since it is very long
+https://houstonacrylic.com/collections/fluorescent-acrylic/products/flourescent-green-acrylic
+    1/8 x 12 x 19 $7.99
+https://houstonacrylic.com/collections/1-16-acrylic/products/1-16-clear-acrylic-sheet
+    1/16 x 12 x 19 $5.99
+https://houstonacrylic.com/collections/1-16-acrylic/products/1-16-fluorescent-green-cast-acrylic-sheet
+    1/16 x 12 x 19 $8.99 (more expensive than 1/8?)
+
+https://www.ttplasticland.com/collections/acrylic-sheets/products/custom-clear-acrylic-sheet
+    1/16 x 12 x 24 $7.00
+    1/8 x 12 x 24 $9.25
+    1/8 x 12 x 12 $4.25
+
+https://www.dichrolam.com/dichro_burl_textures.html
+https://houstonacrylic.com/collections/dichrolam/products/dragontastic-dichrolam-acrylic-sheet
+    Expensive
+
+Nylon spacers: Gateron datasheet says 5mm from top of key plate to bottom of PCB. Minus 1.5875mm thick acrylic, this gives 3.4125mm or 0.13435".
+https://www.mcmaster.com/products/nylon-spacers/spacers~/screw-size~no-2/?s=nylon-spacers
+    Closest is 5/32" = 0.15625" with 3/16" OD (25 for $6.86)
+    https://www.mcmaster.com/94639A469/
+    3D print to save money? If each 96-key board uses 12 on top and 12 on bottom, then need 48, which is $14.
+
+Screws:
+    Length: 5mm from top of key plate to top of bottom plate + 1/8" = 3.175mm bottom plate = 8.175mm
+    https://www.mcmaster.com/92000A015/
+        M2, 8 mm long (just short enough to not stick out bottom of the bottom plate)
+
+Rubber feet to adhere to the bottom of the bottom plate so it doesn't get scratched by laying on the table
+    https://www.mcmaster.com/products/rubber-legs/mount-type~adhesive-back/
+
+Use nut on bottom of bottom plate?
+    https://www.mcmaster.com/90591A265/
+Or thread bottom plate?
+
+PCB height is approx 4.9"
+
+## Laser cutting
+
+https://3axis.co/
+    Artwork
+https://spsweb.fltops.jpl.nasa.gov/portaldataops/mpg/MPG_Docs/Source%20Docs/gravity-SphericalHarmonics.pdf
+https://en.wikipedia.org/wiki/Geopotential_spherical_harmonic_model

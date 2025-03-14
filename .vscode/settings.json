@@ -1,0 +1,86 @@
+{
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "terminal.integrated.cursorStyle": "line",
+    "rust-analyzer.rustfmt.extraArgs": [
+        "+nightly"
+    ],
+    "editor.renderWhitespace": "all",
+    // Disable depth-based bracket colorization (see https://stackoverflow.com/a/71686132)
+    "editor.bracketPairColorization.enabled": false,
+    "editor.guides.bracketPairsHorizontal": false,
+    "editor.guides.highlightActiveBracketPair": false,
+    "editor.guides.indentation": false,
+    "editor.guides.highlightActiveIndentation": false,
+    "workbench.colorCustomizations": {
+        // "editor.selectionHighlightBorder": "#00dd00",
+        // "editor.selectionBackground": "#000000",
+        // "editor.selectionHighlightBackground": "#000000",
+        "editor.wordHighlightBorder": "#909090",
+        "editor.wordHighlightBackground": "#90909044",
+        // "editor.background": "#000000",
+        "editor.lineHighlightBorder": "#004400",
+        "editorBracketMatch.border": "#dd00dd",
+        // "terminal.background":"#000000"
+    },
+    "editor.semanticTokenColorCustomizations": {
+        "enabled": true,
+        "rules": {
+            "builtinAttribute": "#569CD6",
+            "builtinType": "#569CD6",
+            "class": "#26f026",
+            "derive": "#19ff9f",
+            "enum": "#b3f54a",
+            "enumMember": "#b3f54a",
+            "field": "#ff80ff",
+            "formatSpecifier": "#6abfca",
+            "function.attribute": "#ff8514",
+            "function": "#00ffff",
+            "interface": "#19ff9f",
+            "keyword.controlFlow": "#e083cc",
+            "local": "#d4d4d4",
+            // "keyword": "#ad86d6",
+            "macro": "#ff8514",
+            "method": "#00ffff",
+            "namespace": "#e7e700",
+            "decorator": "#ff8514",
+            // "number": "#CE9178",
+            // "operator": "#fa5538",
+            // "parameter.mutable": {
+            //     "underline": false
+            // },
+            "extensionMethod": "#00ffff",
+            "parameter": "#d4d4d4",
+            "property": "#ff80ff",
+            "punctuation.injected": "#D4D4D4",
+            // "selfKeyword.mutable": {
+            //     "underline": false
+            // },
+            // "selfKeyword": "#f08cad",
+            // "string": "#89b171",
+            "struct": "#26f026",
+            "type": "#26f026",
+            "typeAlias": "#26f026",
+            "typeParameter": "#28c557",
+            "union": "#569CD6",
+            "unresolvedReference": "#accfcf",
+            // "variable.mutable": {
+            //     "underline": false
+            // },
+            "variable": "#d4d4d4",
+            // "variable.static": "#8ae9e4",
+            "variable.static": "#ff80ff",
+            // "variable": "#aae1ff"
+        }
+    },
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "workbench.startupEditor": "none",
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "workbench.editor.empty.hint": "hidden",
+    "editor.minimap.enabled": false,
+    "window.zoomLevel": 1,
+    "git.confirmSync": false,
+    "window.confirmSaveUntitledWorkspace": false,
+}

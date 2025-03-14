@@ -1,4 +1,3 @@
-use macroquad::prelude::*;
 use std::collections::VecDeque;
 use std::io::BufRead;
 use std::io::BufReader;
@@ -10,6 +9,8 @@ use std::sync::mpsc::channel;
 use std::thread;
 use std::thread::JoinHandle;
 use std::time::Duration;
+
+use macroquad::prelude::*;
 
 #[macroquad::main(window_conf)]
 async fn main() {
@@ -26,6 +27,7 @@ async fn main() {
         for s in receiver.try_iter() {
             positions.push_back(s);
         }
+
         while positions.len() > 1920 / 2 {
             positions.pop_front();
         }
