@@ -233,7 +233,18 @@ PCB height is approx 4.9"
 
 ## Laser cutting
 
-https://3axis.co/
+https://3axis.co/laser-cut-globe-3d-illusion-night-lamp-cdr-file/078y2gno/
+https://3axis.co/laser-cut-globe-3d-illusion-lamp-dxf-file/078yvz5o/
     Artwork
 https://spsweb.fltops.jpl.nasa.gov/portaldataops/mpg/MPG_Docs/Source%20Docs/gravity-SphericalHarmonics.pdf
 https://en.wikipedia.org/wiki/Geopotential_spherical_harmonic_model
+
+```latex
+$$
+\begin{aligned}
+V\left(r,\theta,\phi\right)&=\sum_{\ell=0}^{\infty}\sum_{m=-\ell}^\ell i_{\ell m}I_{\ell m}\left(r,\theta,\phi\right)\\
+&=\frac{GM}{r}\sum_{\ell=0}^{\infty}\left(\frac{a_e}{r}\right)^\ell\sum_{m=-\ell}^\ell C_{\ell m}Y_{\ell m}\left(\theta,\phi\right)\\
+&=\frac{GM}{r}\sum_{\ell=0}^{\infty}\left(\frac{a_e}{r}\right)^\ell\sum_{m=0}^\ell P_{\ell m}\left(\sin\theta\right)\left[C_{\ell m}\cos m\phi+S_{\ell m}\sin m\phi\right]
+\end{aligned}
+$$
+```
