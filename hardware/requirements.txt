@@ -1,0 +1,4 @@
+numpy
+easyeda2kicad
+# TODO: See note about 3D model incorrect offsets.
+# JLC2KiCadLib

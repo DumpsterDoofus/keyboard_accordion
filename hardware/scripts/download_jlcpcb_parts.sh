@@ -54,5 +54,7 @@ lcsc_ids=(
 )
 
 for lcsc_id in "${lcsc_ids[@]}"; do
+    # TODO: See note about 3D model incorrect offsets.
     easyeda2kicad --full --output kicad/library/jlcpcb --lcsc_id="$lcsc_id"
+    # JLC2KiCadLib -dir kicad/library/jlcpcb -symbol_lib symbols $lcsc_id
 done

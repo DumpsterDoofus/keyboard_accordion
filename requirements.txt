@@ -1,4 +1,0 @@
-numpy
-easyeda2kicad
-pyserial
-JLC2KiCadLib
