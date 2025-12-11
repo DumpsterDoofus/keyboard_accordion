@@ -96,6 +96,14 @@ https://www.pjrc.com/teensy/card11a_rev4_web.pdf
 https://www.modartt.com/pianoteq
     Has Bosendorfer and other sound samples, seems like it can be driven by MIDI input
 
+Spring replacement (looking for heaviest possible springs):
+https://www.aliexpress.us/item/3256806086739065.html
+https://www.aliexpress.us/item/3256806148791012.html
+    100g and 120g, but only 1 pack of 70 per customer, might be able to sidestep by using different sellers
+https://wooting.io/product/lekker-spring-packs
+https://wooting.io/product/blank-switch-toolkit
+https://youtu.be/WN_-GYLTfpY?t=279
+
 ## Power
 
 The Teensy has a 3.3V output, but a commenter suggested to avoid using it for large current draw (https://forum.pjrc.com/index.php?threads/beginner-schematic-review-hall-effect-keyboard.76407/post-354362). So instead am going to power Teensy with USB, and other components with 5V DC power adapter dropped to 3.3V using a linear regulator.
