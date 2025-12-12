@@ -45,6 +45,7 @@ lcsc_ids=(
 
     # Multiplexer
     "C98457"
+    "C179326"
 
     # Hall sensor
     "C266230"
