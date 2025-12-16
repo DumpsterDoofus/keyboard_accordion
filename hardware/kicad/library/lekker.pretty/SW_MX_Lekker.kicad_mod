@@ -1,13 +1,13 @@
 (footprint "SW_MX_Lekker"
-	(version 20240108)
+	(version 20241229)
 	(generator "pcbnew")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(layer "F.Cu")
 	(descr "Footprint for Cherry MX style switches")
 	(tags "cherry mx switch")
 	(property "Reference" "REF**"
 		(at 0 -3.048 0)
-		(layer "Dwgs.User")
+		(layer "F.SilkS")
 		(uuid "dbca2564-d94b-42a8-bf9c-a4d520d75c4c")
 		(effects
 			(font
@@ -19,24 +19,12 @@
 	)
 	(property "Value" "SW_MX_Lekker"
 		(at 0 -8 0)
-		(layer "F.SilkS")
+		(layer "F.Fab")
 		(hide yes)
 		(uuid "810d1828-323c-409a-960d-456fda8be10a")
 		(effects
 			(font
 				(size 1 1)
-				(thickness 0.15)
-			)
-		)
-	)
-	(property "Footprint" ""
-		(at 0 0 0)
-		(layer "F.Fab")
-		(hide yes)
-		(uuid "34f13776-d72a-42fa-a23b-19d44f5aa5c1")
-		(effects
-			(font
-				(size 1.27 1.27)
 				(thickness 0.15)
 			)
 		)
@@ -227,6 +215,10 @@
 			(copperpour not_allowed)
 			(footprints allowed)
 		)
+		(placement
+			(enabled no)
+			(sheetname "")
+		)
 		(fill
 			(thermal_gap 0.5)
 			(thermal_bridge_width 0.5)
@@ -238,6 +230,7 @@
 			)
 		)
 	)
+	(embedded_fonts no)
 	(model ":KICAD7_3DMODEL_DIR:Package_TO_SOT_SMD.3dshapes/SOT-23.step"
 		(offset
 			(xyz 0 0 -1.6)
