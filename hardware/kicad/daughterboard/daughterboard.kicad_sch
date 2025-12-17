@@ -6,7 +6,7 @@
 	(paper "A5")
 	(title_block
 		(title "https://github.com/DumpsterDoofus/keyboard_accordion")
-		(rev "daughterboard")
+		(rev "0.2.0")
 	)
 	(lib_symbols
 		(symbol "X6511FV-24-C85D32_1"

@@ -71177,8 +71177,8 @@
 		(layer "Edge.Cuts")
 		(uuid "c815d6f5-413e-46d0-b6df-54a94ca04ea6")
 	)
-	(gr_text "https://github.com/DumpsterDoofus/keyboard_accordion/tree/2cf37cad98c52a38ec58199ef9a22818f4d123ae/hardware/kicad/96_key"
-		(at 127.95 232.2 0)
+	(gr_text "https://github.com/DumpsterDoofus/keyboard_accordion/releases/tag/0.2.0"
+		(at 165.45 128.95 0)
 		(layer "F.SilkS")
 		(uuid "4a582144-3bc5-480c-8ab9-84de29846333")
 		(effects

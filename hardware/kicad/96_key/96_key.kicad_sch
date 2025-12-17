@@ -6,7 +6,7 @@
 	(paper "C")
 	(title_block
 		(title "https://github.com/DumpsterDoofus/keyboard_accordion")
-		(rev "96 key")
+		(rev "0.2.0")
 	)
 	(lib_symbols
 		(symbol "jlcpcb:74HC4067PW,118"

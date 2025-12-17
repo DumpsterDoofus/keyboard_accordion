@@ -2735,8 +2735,8 @@
 		(layer "Edge.Cuts")
 		(uuid "ec88cfa5-4965-4d71-b8fc-32017000f0fd")
 	)
-	(gr_text "Right board"
-		(at 94.6 47 0)
+	(gr_text "Left board"
+		(at 95.4 46.8 0)
 		(layer "F.SilkS")
 		(uuid "42309dd9-2f8b-4039-930b-71ca05ddf682")
 		(effects
@@ -2748,8 +2748,21 @@
 			(justify left bottom)
 		)
 	)
-	(gr_text "Left board"
-		(at 95.6 34 0)
+	(gr_text "https://github.com/DumpsterDoofus/keyboard_accordion/releases/tag/0.2.0"
+		(at 67.2 12.6 0)
+		(layer "F.SilkS")
+		(uuid "4e240809-2dc0-45f6-9d02-e9c1f443238a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.2)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "Right board"
+		(at 94.6 33.8 0)
 		(layer "F.SilkS")
 		(uuid "c8230952-9f22-403d-ab3b-94b15820cf79")
 		(effects
