@@ -9,34 +9,39 @@ import csv
 #     [6000 + 800, 3000],
 #     [6000, 3000],
 # ]
-with open('temp/button_positions.csv', newline='') as f:
-    button_positions = [
-        row
-        for row in csv.reader(f)
-    ]
+# with open('temp/button_positions.csv', newline='') as f:
+#     button_positions = [
+#         row
+#         for row in csv.reader(f)
+#     ]
 
-pcb_path = 'kicad/192_key/192_key.kicad_pcb'
+pcb_path = 'kicad/96_key/96_key.kicad_pcb'
 board: pcbnew.BOARD = pcbnew.LoadBoard(pcb_path)
 
-index = 0
-for footprint in board.GetFootprints():
-    if footprint.GetReference() == 'REFn':
-        footprint.SetReference(f'KEY{index}')
-        index += 1
+i = 28
+while i >= 0:
+    board.FindFootprintByReference(f'H{i}').SetReference(f'H{i+1}')
+    i -= 1
 
-found: Dict[str, list] = {}
-for footprint in board.GetFootprints():
-    reference = footprint.GetReference()
-    array = found.get(reference)
-    if array is None:
-        found[reference] = [footprint]
-    else:
-        array.append(footprint)
-for reference, footprints in found.items():
-    if len(footprints) > 1:
-        print(f'{reference} has {len(footprints)} copies')
-        for footprint in footprints[1:]:
-            board.Delete(footprint)
+# index = 0
+# for footprint in board.GetFootprints():
+#     if footprint.GetReference() == 'REFn':
+#         footprint.SetReference(f'KEY{index}')
+#         index += 1
+
+# found: Dict[str, list] = {}
+# for footprint in board.GetFootprints():
+#     reference = footprint.GetReference()
+#     array = found.get(reference)
+#     if array is None:
+#         found[reference] = [footprint]
+#     else:
+#         array.append(footprint)
+# for reference, footprints in found.items():
+#     if len(footprints) > 1:
+#         print(f'{reference} has {len(footprints)} copies')
+#         for footprint in footprints[1:]:
+#             board.Delete(footprint)
 
 # for index, position in enumerate(button_positions):
 #     # if index <= 15:
