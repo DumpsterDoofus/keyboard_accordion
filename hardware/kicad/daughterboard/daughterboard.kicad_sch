@@ -2227,6 +2227,118 @@
 		(color 0 0 0 0)
 		(uuid "e62b63fd-4485-4f0f-a074-561bfcbdbb21")
 	)
+	(no_connect
+		(at 25.4 81.28)
+		(uuid "0e0d91a6-2ffb-4e95-a962-578ceea4f471")
+	)
+	(no_connect
+		(at 82.55 81.28)
+		(uuid "232c9c27-1bcd-407e-98eb-fa2a5ded8075")
+	)
+	(no_connect
+		(at 25.4 96.52)
+		(uuid "2611e66c-c3ea-4ee1-87b5-9caf7a4cad4b")
+	)
+	(no_connect
+		(at 82.55 53.34)
+		(uuid "2fd6321a-5fa3-40e7-b9f1-119d87860be7")
+	)
+	(no_connect
+		(at 25.4 66.04)
+		(uuid "3918c145-a43c-4e45-a817-6560deb50328")
+	)
+	(no_connect
+		(at 25.4 106.68)
+		(uuid "3c0aa089-fd70-43a5-82d6-6c34d7b07ecb")
+	)
+	(no_connect
+		(at 25.4 104.14)
+		(uuid "3f731d44-a6ec-4381-80ff-719ebc54a1e6")
+	)
+	(no_connect
+		(at 25.4 50.8)
+		(uuid "42a7873a-e8d9-4077-a646-47a8be767299")
+	)
+	(no_connect
+		(at 25.4 99.06)
+		(uuid "45079429-9464-4ef9-9dca-4b52a5b30c0d")
+	)
+	(no_connect
+		(at 25.4 78.74)
+		(uuid "4e26b085-b1ff-4089-8a8d-fd2ae0ba2c59")
+	)
+	(no_connect
+		(at 25.4 86.36)
+		(uuid "4e4892c6-aaf0-42ef-b2f7-01aff0083a56")
+	)
+	(no_connect
+		(at 25.4 91.44)
+		(uuid "53db6330-5370-4808-80e0-dc988c1973e0")
+	)
+	(no_connect
+		(at 25.4 55.88)
+		(uuid "54e63fc4-3b0a-4b78-9ba5-44804f1a28ca")
+	)
+	(no_connect
+		(at 82.55 106.68)
+		(uuid "66e276e0-0458-4e61-bb67-581f3af0ba89")
+	)
+	(no_connect
+		(at 25.4 73.66)
+		(uuid "6ff1b531-d3fc-4b60-9d24-78704f15f8d6")
+	)
+	(no_connect
+		(at 25.4 60.96)
+		(uuid "76266454-dd50-4d2a-80af-957eedcbf463")
+	)
+	(no_connect
+		(at 25.4 88.9)
+		(uuid "8e0760bd-e782-4b1c-b9b6-726167aa5565")
+	)
+	(no_connect
+		(at 82.55 104.14)
+		(uuid "8e14aed9-4897-461f-acd4-a6d5044aabe7")
+	)
+	(no_connect
+		(at 25.4 76.2)
+		(uuid "96c3e073-ac5b-46b0-83da-04f61816abb4")
+	)
+	(no_connect
+		(at 25.4 63.5)
+		(uuid "9782757d-dfdb-49a3-9369-13df37f5cb92")
+	)
+	(no_connect
+		(at 25.4 53.34)
+		(uuid "986b90ac-88a3-495f-82dd-741bc03b5013")
+	)
+	(no_connect
+		(at 82.55 48.26)
+		(uuid "998df5c1-9a6a-4da1-8597-3d8f9cb943bc")
+	)
+	(no_connect
+		(at 25.4 58.42)
+		(uuid "9d5a08b2-8935-46a2-9230-fe2ac53bc24f")
+	)
+	(no_connect
+		(at 25.4 71.12)
+		(uuid "a2bcef95-ca83-4d0d-af98-7181e5007eff")
+	)
+	(no_connect
+		(at 25.4 101.6)
+		(uuid "a821eb83-3b5d-45ba-8d56-a98c9a7da84c")
+	)
+	(no_connect
+		(at 25.4 68.58)
+		(uuid "ce116d51-b5cb-4319-8e93-8b1cfe13b310")
+	)
+	(no_connect
+		(at 25.4 83.82)
+		(uuid "e1ffd69a-625f-4e53-94d9-9eab715f208d")
+	)
+	(no_connect
+		(at 25.4 93.98)
+		(uuid "fb3fd324-2652-4c54-b3a6-7b6648148868")
+	)
 	(wire
 		(pts
 			(xy 45.72 22.86) (xy 45.72 26.67)
@@ -2286,16 +2398,6 @@
 			(type default)
 		)
 		(uuid "659f8478-9981-406f-bb84-6d8f5eca572b")
-	)
-	(wire
-		(pts
-			(xy 16.51 48.26) (xy 25.4 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6e339eb8-4642-43b5-8207-3c6c64c8381f")
 	)
 	(wire
 		(pts
@@ -2409,6 +2511,16 @@
 	)
 	(wire
 		(pts
+			(xy 16.51 48.26) (xy 16.51 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "de9eda64-9818-44d1-a0ae-c1abfe6c2c97")
+	)
+	(wire
+		(pts
 			(xy 82.55 50.8) (xy 92.71 50.8)
 		)
 		(stroke
@@ -2416,6 +2528,16 @@
 			(type default)
 		)
 		(uuid "e7b54035-364b-4ca0-a973-9d170c3e251a")
+	)
+	(wire
+		(pts
+			(xy 25.4 48.26) (xy 16.51 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eb6d87cf-6a50-4be4-88ac-806b5910f4b8")
 	)
 	(wire
 		(pts
@@ -2427,7 +2549,7 @@
 		)
 		(uuid "f6269e0f-34b0-4a9f-a701-989550e689ea")
 	)
-	(global_label "AM0"
+	(global_label "AM1"
 		(shape input)
 		(at 82.55 55.88 0)
 		(fields_autoplaced yes)
@@ -2449,7 +2571,7 @@
 			)
 		)
 	)
-	(global_label "AM11"
+	(global_label "AM12"
 		(shape input)
 		(at 166.37 44.45 180)
 		(fields_autoplaced yes)
@@ -2471,7 +2593,7 @@
 			)
 		)
 	)
-	(global_label "AM11"
+	(global_label "AM12"
 		(shape input)
 		(at 82.55 88.9 0)
 		(fields_autoplaced yes)
@@ -2493,7 +2615,7 @@
 			)
 		)
 	)
-	(global_label "AM9"
+	(global_label "AM10"
 		(shape input)
 		(at 82.55 78.74 0)
 		(fields_autoplaced yes)
@@ -2515,7 +2637,7 @@
 			)
 		)
 	)
-	(global_label "CONTROL0"
+	(global_label "CONTROL1"
 		(shape input)
 		(at 166.37 46.99 180)
 		(fields_autoplaced yes)
@@ -2537,7 +2659,7 @@
 			)
 		)
 	)
-	(global_label "AM4"
+	(global_label "AM5"
 		(shape input)
 		(at 82.55 66.04 0)
 		(fields_autoplaced yes)
@@ -2559,7 +2681,7 @@
 			)
 		)
 	)
-	(global_label "CONTROL0"
+	(global_label "CONTROL1"
 		(shape input)
 		(at 82.55 91.44 0)
 		(fields_autoplaced yes)
@@ -2581,7 +2703,7 @@
 			)
 		)
 	)
-	(global_label "AM6"
+	(global_label "AM7"
 		(shape input)
 		(at 166.37 31.75 180)
 		(fields_autoplaced yes)
@@ -2603,7 +2725,7 @@
 			)
 		)
 	)
-	(global_label "AM4"
+	(global_label "AM5"
 		(shape input)
 		(at 116.84 41.91 180)
 		(fields_autoplaced yes)
@@ -2625,7 +2747,7 @@
 			)
 		)
 	)
-	(global_label "AM1"
+	(global_label "AM2"
 		(shape input)
 		(at 82.55 58.42 0)
 		(fields_autoplaced yes)
@@ -2647,7 +2769,7 @@
 			)
 		)
 	)
-	(global_label "CONTROL3"
+	(global_label "CONTROL4"
 		(shape input)
 		(at 116.84 54.61 180)
 		(fields_autoplaced yes)
@@ -2669,7 +2791,7 @@
 			)
 		)
 	)
-	(global_label "AM10"
+	(global_label "AM11"
 		(shape input)
 		(at 166.37 41.91 180)
 		(fields_autoplaced yes)
@@ -2691,7 +2813,7 @@
 			)
 		)
 	)
-	(global_label "AM6"
+	(global_label "AM7"
 		(shape input)
 		(at 82.55 71.12 0)
 		(fields_autoplaced yes)
@@ -2713,7 +2835,7 @@
 			)
 		)
 	)
-	(global_label "AM8"
+	(global_label "AM9"
 		(shape input)
 		(at 82.55 76.2 0)
 		(fields_autoplaced yes)
@@ -2735,7 +2857,7 @@
 			)
 		)
 	)
-	(global_label "CONTROL3"
+	(global_label "CONTROL4"
 		(shape input)
 		(at 82.55 99.06 0)
 		(fields_autoplaced yes)
@@ -2757,7 +2879,7 @@
 			)
 		)
 	)
-	(global_label "AM2"
+	(global_label "AM3"
 		(shape input)
 		(at 116.84 36.83 180)
 		(fields_autoplaced yes)
@@ -2779,7 +2901,7 @@
 			)
 		)
 	)
-	(global_label "AM3"
+	(global_label "AM4"
 		(shape input)
 		(at 82.55 63.5 0)
 		(fields_autoplaced yes)
@@ -2801,7 +2923,7 @@
 			)
 		)
 	)
-	(global_label "CONTROL1"
+	(global_label "CONTROL2"
 		(shape input)
 		(at 116.84 49.53 180)
 		(fields_autoplaced yes)
@@ -2823,7 +2945,7 @@
 			)
 		)
 	)
-	(global_label "CONTROL0"
+	(global_label "CONTROL1"
 		(shape input)
 		(at 116.84 46.99 180)
 		(fields_autoplaced yes)
@@ -2845,7 +2967,7 @@
 			)
 		)
 	)
-	(global_label "CONTROL2"
+	(global_label "CONTROL3"
 		(shape input)
 		(at 116.84 52.07 180)
 		(fields_autoplaced yes)
@@ -2867,7 +2989,7 @@
 			)
 		)
 	)
-	(global_label "AM2"
+	(global_label "AM3"
 		(shape input)
 		(at 82.55 60.96 0)
 		(fields_autoplaced yes)
@@ -2889,7 +3011,7 @@
 			)
 		)
 	)
-	(global_label "AM8"
+	(global_label "AM9"
 		(shape input)
 		(at 166.37 36.83 180)
 		(fields_autoplaced yes)
@@ -2911,7 +3033,7 @@
 			)
 		)
 	)
-	(global_label "CONTROL3"
+	(global_label "CONTROL4"
 		(shape input)
 		(at 166.37 54.61 180)
 		(fields_autoplaced yes)
@@ -2933,7 +3055,7 @@
 			)
 		)
 	)
-	(global_label "CONTROL1"
+	(global_label "CONTROL2"
 		(shape input)
 		(at 166.37 49.53 180)
 		(fields_autoplaced yes)
@@ -2955,7 +3077,7 @@
 			)
 		)
 	)
-	(global_label "AM5"
+	(global_label "AM6"
 		(shape input)
 		(at 82.55 68.58 0)
 		(fields_autoplaced yes)
@@ -2977,7 +3099,7 @@
 			)
 		)
 	)
-	(global_label "CONTROL2"
+	(global_label "CONTROL3"
 		(shape input)
 		(at 166.37 52.07 180)
 		(fields_autoplaced yes)
@@ -2999,7 +3121,7 @@
 			)
 		)
 	)
-	(global_label "AM7"
+	(global_label "AM8"
 		(shape input)
 		(at 82.55 73.66 0)
 		(fields_autoplaced yes)
@@ -3021,7 +3143,7 @@
 			)
 		)
 	)
-	(global_label "AM10"
+	(global_label "AM11"
 		(shape input)
 		(at 82.55 86.36 0)
 		(fields_autoplaced yes)
@@ -3043,7 +3165,7 @@
 			)
 		)
 	)
-	(global_label "CONTROL1"
+	(global_label "CONTROL2"
 		(shape input)
 		(at 82.55 93.98 0)
 		(fields_autoplaced yes)
@@ -3065,7 +3187,7 @@
 			)
 		)
 	)
-	(global_label "AM3"
+	(global_label "AM4"
 		(shape input)
 		(at 116.84 39.37 180)
 		(fields_autoplaced yes)
@@ -3087,7 +3209,7 @@
 			)
 		)
 	)
-	(global_label "AM9"
+	(global_label "AM10"
 		(shape input)
 		(at 166.37 39.37 180)
 		(fields_autoplaced yes)
@@ -3109,7 +3231,7 @@
 			)
 		)
 	)
-	(global_label "AM5"
+	(global_label "AM6"
 		(shape input)
 		(at 116.84 44.45 180)
 		(fields_autoplaced yes)
@@ -3131,7 +3253,7 @@
 			)
 		)
 	)
-	(global_label "AM1"
+	(global_label "AM2"
 		(shape input)
 		(at 116.84 34.29 180)
 		(fields_autoplaced yes)
@@ -3153,7 +3275,7 @@
 			)
 		)
 	)
-	(global_label "CONTROL2"
+	(global_label "CONTROL3"
 		(shape input)
 		(at 82.55 96.52 0)
 		(fields_autoplaced yes)
@@ -3175,7 +3297,7 @@
 			)
 		)
 	)
-	(global_label "AM0"
+	(global_label "AM1"
 		(shape input)
 		(at 116.84 31.75 180)
 		(fields_autoplaced yes)
@@ -3197,7 +3319,7 @@
 			)
 		)
 	)
-	(global_label "AM7"
+	(global_label "AM8"
 		(shape input)
 		(at 166.37 34.29 180)
 		(fields_autoplaced yes)
@@ -3894,7 +4016,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 16.51 48.26 0)
+		(at 16.51 57.15 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3903,7 +4025,7 @@
 		(fields_autoplaced yes)
 		(uuid "7470e33d-93bc-44c2-a18f-1b3c601dc394")
 		(property "Reference" "#PWR01"
-			(at 16.51 54.61 0)
+			(at 16.51 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3912,7 +4034,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 19.05 49.5299 0)
+			(at 19.05 58.4199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3921,7 +4043,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 16.51 48.26 0)
+			(at 16.51 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3930,7 +4052,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 16.51 48.26 0)
+			(at 16.51 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3939,7 +4061,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 16.51 48.26 0)
+			(at 16.51 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
