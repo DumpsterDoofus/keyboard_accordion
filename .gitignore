@@ -1,9 +1,7 @@
-*.zip
 fp-info-cache
 *.lck
 temp/
-production/
-
+*backups
 logs
 *.log
 

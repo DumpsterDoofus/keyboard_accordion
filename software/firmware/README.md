@@ -1,0 +1,3 @@
+For C++ intellisense to work, you need to open this directory in VS Code, rather than the parent Git repository (otherwise the PlatformIO libraries will not be found).
+
+For firmware upload to work, you need to install [00-teensy.rules](https://www.pjrc.com/teensy/00-teensy.rules) to `/etc/udev/rules.d/`, see [these instructions](https://www.pjrc.com/teensy/loader_linux.html). Then connect the Teensy via USB, and use PlatformIO's "Upload" action.

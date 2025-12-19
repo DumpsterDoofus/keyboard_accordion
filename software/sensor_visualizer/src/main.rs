@@ -34,7 +34,12 @@ async fn main() {
 
         clear_background(BLACK);
 
-        for (pos, &(s1, s2, s3)) in positions.iter().enumerate() {
+        for (pos, numbers) in positions.iter().enumerate() {
+            // let start_index = 0; // 3-key
+            let start_index = 112; // 192-key
+            let s1 = numbers[start_index + 0];
+            let s2 = numbers[start_index + 1];
+            let s3 = numbers[start_index + 2];
             draw_circle(2.0f32 * pos as f32, 3.7f32 * (s1 - 280.0f32), 2.0, RED);
             draw_circle(2.0f32 * pos as f32, 3.7f32 * (s2 - 280.0f32), 2.0, GREEN);
             draw_circle(2.0f32 * pos as f32, 3.7f32 * (s3 - 280.0f32), 2.0, BLUE);
@@ -54,10 +59,7 @@ fn window_conf() -> Conf {
     }
 }
 
-fn create_receive_thread(
-    sender: Sender<(f32, f32, f32)>,
-    shutdown: Arc<AtomicBool>,
-) -> JoinHandle<()> {
+fn create_receive_thread(sender: Sender<Vec<f32>>, shutdown: Arc<AtomicBool>) -> JoinHandle<()> {
     return thread::spawn(move || {
         let serial_port = serialport::new("/dev/ttyACM0", 0)
             .timeout(Duration::from_millis(1000))
@@ -72,11 +74,19 @@ fn create_receive_thread(
                 .expect("Failed to receive data from serial port");
 
             if line.starts_with("Sensor readings: ") {
-                let mut numbers = line[17..].split(',');
-                let s1 = numbers.next().unwrap().parse::<f32>().unwrap();
-                let s2 = numbers.next().unwrap().parse::<f32>().unwrap();
-                let s3 = numbers.next().unwrap().parse::<f32>().unwrap();
-                sender.send((s1, s2, s3)).unwrap();
+                let numbers = line[17..]
+                    .split(',')
+                    .map(|s| match s.parse::<f32>() {
+                        Ok(num) => num,
+                        Err(v) => {
+                            println!("Error parsing number with text \"{}\": {}", s, v);
+                            0.0
+                        }
+                    })
+                    // .take(32) // 3-key
+                    .take(192) // 192-key
+                    .collect();
+                sender.send(numbers).unwrap();
             }
 
             line.clear();
