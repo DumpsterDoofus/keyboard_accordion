@@ -76,13 +76,7 @@ fn create_receive_thread(sender: Sender<Vec<f32>>, shutdown: Arc<AtomicBool>) ->
             if line.starts_with("Sensor readings: ") {
                 let numbers = line[17..]
                     .split(',')
-                    .map(|s| match s.parse::<f32>() {
-                        Ok(num) => num,
-                        Err(v) => {
-                            println!("Error parsing number with text \"{}\": {}", s, v);
-                            0.0
-                        }
-                    })
+                    .map(|s| s.parse::<f32>().unwrap())
                     // .take(32) // 3-key
                     .take(192) // 192-key
                     .collect();
