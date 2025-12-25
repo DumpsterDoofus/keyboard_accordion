@@ -2,18 +2,9 @@
 #include <ADC_util.h>
 #include <ADC_Module.h>
 
-#include "config.cpp"
 #include "max_velocity_sensor.cpp"
+#include "mean_velocity_sensor.cpp"
 #include "pressure_sensor.cpp"
-
-// Logs total time used to read all the keys.
-#define LOG_LATENCY
-
-// Logs each individual key press.
-#define LOG_KEY_PRESSES
-
-// Logs all keys in CSV format.
-#define LOG_SENSOR_READINGS
 
 // This detects whether the PCB is powered by the external AC adapter.
 const int dc_power_input = 37; // TODO: 35 for 192-key

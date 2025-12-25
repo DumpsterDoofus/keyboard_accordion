@@ -1,6 +1,15 @@
 #pragma once
 #include <Arduino.h>
 
+// Logs total time used to read all the keys.
+#define LOG_LATENCY
+
+// Logs each individual key press.
+#define LOG_KEY_PRESSES
+
+// Logs all keys in CSV format.
+#define LOG_SENSOR_READINGS
+
 void print_array(int32_t (&array)[192])
 {
     for (auto element : array)
