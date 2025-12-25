@@ -3,7 +3,7 @@
 #include <ADC_Module.h>
 
 #include "config.cpp"
-#include "velocity_sensor.cpp"
+#include "max_velocity_sensor.cpp"
 #include "pressure_sensor.cpp"
 
 // Logs total time used to read all the keys.
@@ -68,7 +68,7 @@ enum class Command
 };
 
 Config config;
-VelocitySensor velocity_sensor{config};
+MaxVelocitySensor velocity_sensor{config};
 PressureSensor pressure_sensor{config};
 
 ADC &adc = *new ADC();
