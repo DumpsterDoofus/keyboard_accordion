@@ -1,11 +1,10 @@
-#include <algorithm>
 #include <ADC.h>
 #include <ADC_util.h>
 #include <ADC_Module.h>
-#include <limits>
-#include <SD.h>
-#include <string>
-#include "wiring.h"
+
+#include "config.cpp"
+#include "velocity_sensor.cpp"
+#include "pressure_sensor.cpp"
 
 // Logs total time used to read all the keys.
 #define LOG_LATENCY
@@ -48,16 +47,6 @@ const int multiplexer_outputs[4] = {
     // 36,
 };
 
-const int index_to_note[192] = {
-    // TODO: Figure this out once hardware arrives.
-};
-
-int32_t sensor_readings[192];
-float_t max_velocities[192];
-
-// If the sensors are being "factory calibrated".
-bool calibrating = false;
-
 bool powered;
 
 enum class Command
@@ -78,189 +67,9 @@ enum class Command
     EnablePressureSensing = 4,
 };
 
-enum class PlayingMode
-{
-    // Playing in velocity-sensitive mode (like a piano). Virtually all MIDI instruments support this.
-    VelocitySensing = 0,
-
-    // Playing in polytonic-aftertouch mode (press distance of each key controls its volume). Very few MIDI instruments support this.
-    PressureSensing = 1,
-};
-
-char* to_string(PlayingMode playing_mode)
-{
-    switch (playing_mode)
-    {
-    case PlayingMode::VelocitySensing:
-        return "Velocity Sensing";
-
-    case PlayingMode::PressureSensing:
-        return "Pressure Sensing";
-
-    default:
-        return "Unknown";
-    }
-}
-
-// The result of a calibration procedure, where each key is pressed fully down and up.
-struct CalibrationResult
-{
-    int32_t min_sensor_readings[192];
-    int32_t max_sensor_readings[192];
-};
-
-// User settings. This is persisted to the SD card so that it isn't lost during a power cycle.
-struct Config
-{
-    PlayingMode playing_mode;
-    CalibrationResult calibration_result;
-};
-
 Config config;
-
-void print_array(int32_t (&array)[192])
-{
-    for (auto element : array)
-    {
-        Serial.print(element);
-        Serial.print(',');
-    }
-    Serial.println();
-}
-
-void print_config()
-{
-    Serial.print("Playing mode: ");
-    Serial.println(to_string(config.playing_mode));
-
-    Serial.print("Min sensor readings: ");
-    print_array(config.calibration_result.min_sensor_readings);
-
-    Serial.print("Max sensor readings: ");
-    print_array(config.calibration_result.max_sensor_readings);
-}
-
-void fill_array(int32_t (&array)[192], int32_t value)
-{
-    std::fill(std::begin(array), std::end(array), value);
-}
-
-void save_config()
-{
-    while (true)
-    {
-        if (!SD.begin(BUILTIN_SDCARD))
-        {
-            Serial.println("SD card was not found, but is required to store settings. Please insert an SD card.");
-            delay(1000);
-            continue;
-        }
-
-        auto config_file = SD.open("dugmetara.config", FILE_WRITE_BEGIN);
-        if (!config_file)
-        {
-            config_file.close();
-            Serial.println("Failed to open previous settings on SD card. Retrying.");
-            delay(1000);
-            continue;
-        }
-
-        auto expected_bytes = sizeof(Config);
-        auto actual_bytes = config_file.write(reinterpret_cast<const char *>(&config), expected_bytes);
-        config_file.close();
-
-        if (expected_bytes != actual_bytes)
-        {
-            Serial.print("Failed to write settings to SD card. Expected bytes written: ");
-            Serial.print(expected_bytes);
-            Serial.print(", actual bytes written: ");
-            Serial.print(actual_bytes);
-            Serial.println(". Retrying.");
-            continue;
-        }
-        else
-        {
-            Serial.println("Successfully saved settings to SD card.");
-            print_config();
-            return;
-        }
-    }
-}
-
-void save_default_config()
-{
-    config.playing_mode = PlayingMode::VelocitySensing;
-
-    fill_array(config.calibration_result.min_sensor_readings, 300);
-    fill_array(config.calibration_result.max_sensor_readings, 480);
-
-    save_config();
-}
-
-void load_config()
-{
-    while (true)
-    {
-        if (!SD.begin(BUILTIN_SDCARD))
-        {
-            Serial.println("SD card was not found, but is required to store settings. Please insert an SD card.");
-            delay(1000);
-            continue;
-        }
-
-        if (!SD.exists("dugmetara.config"))
-        {
-            Serial.println("Previous settings were not found on SD card, so creating default settings.");
-            save_default_config();
-            return;
-        }
-
-        auto config_file = SD.open("dugmetara.config", FILE_READ);
-        if (!config_file)
-        {
-            config_file.close();
-            Serial.println("Failed to open previous settings on SD card. Retrying.");
-            delay(1000);
-            continue;
-        }
-
-        auto expected_bytes = sizeof(Config);
-        auto actual_bytes = config_file.read(reinterpret_cast<char *>(&config), expected_bytes);
-        config_file.close();
-
-        if (expected_bytes != actual_bytes)
-        {
-            Serial.print("Previous SD card settings were found, but not enough data was present. Expected bytes: ");
-            Serial.print(expected_bytes);
-            Serial.print(", actual bytes: ");
-            Serial.print(actual_bytes);
-            Serial.println(". Creating default settings.");
-
-            save_default_config();
-            return;
-        }
-        else
-        {
-            Serial.println("Successfully loaded settings from SD card.");
-            print_config();
-            return;
-        }
-    }
-}
-
-void set_playing_mode(PlayingMode playing_mode)
-{
-    if (config.playing_mode == playing_mode)
-    {
-        Serial.println("Received request to change playing mode, but the requested playing mode is already the current playing mode, so doing nothing.");
-    }
-    else
-    {
-        Serial.println("Saving update to playing mode.");
-        config.playing_mode = playing_mode;
-        save_config();
-    }
-}
+VelocitySensor velocity_sensor{config};
+PressureSensor pressure_sensor{config};
 
 ADC &adc = *new ADC();
 
@@ -294,216 +103,28 @@ bool truth_table(uint8_t multiplexer_channel, uint8_t control)
     return (multiplexer_channel & mask) != 0;
 }
 
-uint8_t get_pressure(int32_t reading)
-{
-    // TODO: Read from calibration
-    const int min_reading = 300;
-    const int max_reading = 480;
-    auto pressure_float = 127.0f * (max_reading - reading) / (max_reading - min_reading);
-
-    auto pressure_int = static_cast<int>(std::round(pressure_float));
-    // MIDI pressure range is 0 to 127. Anything higher than 127 will alias down into the 0-127 range. See https://arduinomidilib.sourceforge.net/a00001.html.
-    return static_cast<uint8_t>(std::clamp(pressure_int, 0, 127));
-}
-
-void handle_sensor_reading_velocity(uint8_t index, int32_t sensor_reading)
-{
-    auto last_sensor_reading = sensor_readings[index];
-    sensor_readings[index] = sensor_reading;
-
-    // 0 is fully unpressed, 1 is fully pressed.
-    auto displacement = (sensor_reading - config.calibration_result.min_sensor_readings[index]) / static_cast<float>(config.calibration_result.max_sensor_readings[index] - config.calibration_result.min_sensor_readings[index]);
-
-    auto velocity = sensor_reading - last_sensor_reading;
-    auto max_velocity = max_velocities[index];
-
-    // Max velocity encodes 3 states:
-    // == 0 means key is "not yet pressed"
-    // > 0 means key is "being pressed"
-    // == -1 means key is "being released"
-    if (max_velocity >= 0)
-    {
-        // Transition into "being pressed" when key is at least 10% pressed, to ignore noise in the unpressed state.
-        if (displacement > 0.1f)
-        {
-            if (velocity > max_velocity)
-            {
-                max_velocity = velocity;
-                max_velocities[index] = velocity;
-            }
-        }
-        // The "actuation point" is when the key is at least 90% pressed or it begins moving backwards while in "being pressed".
-        if (displacement > 0.9f || velocity <= 0 && max_velocity > 0)
-        {
-            // Transition to "being released".
-            max_velocities[index] = -1.0f;
-
-            // TODO: Need to tune this based off actual velocity from testing.
-            const float velocity_multiplier = 1.0f;
-
-            // MIDI velocity range is 0 to 127. Anything higher than 127 will alias down into the 0-127 range. See https://arduinomidilib.sourceforge.net/a00001.html.
-            auto midi_velocity = static_cast<uint8_t>(std::clamp(static_cast<int>(std::round(velocity_multiplier * displacement * max_velocity)), 0, 127));
-            auto note = index_to_note[index];
-            usbMIDI.sendNoteOn(note, midi_velocity, 0);
-
-#ifdef LOG_KEY_PRESSES
-            Serial.print("Sent note ");
-            Serial.print(note);
-            Serial.print(" on with velocity ");
-            Serial.print(midi_velocity);
-            Serial.println('.');
-#endif
-        }
-    }
-    // Key is "being released".
-    else
-    {
-        if (displacement < 0.1f)
-        {
-            // Transition to "not yet pressed".
-            max_velocities[index] = 0.0f;
-
-            auto note = index_to_note[index];
-            usbMIDI.sendNoteOff(note, 0, 0);
-
-#ifdef LOG_KEY_PRESSES
-            Serial.print("Sent note ");
-            Serial.print(note);
-            Serial.println(" off.");
-#endif
-        }
-    }
-}
-
-void handle_sensor_reading_pressure(uint8_t index, int32_t sensor_reading)
-{
-    const uint8_t note = 60;
-
-    auto last_sensor_reading = sensor_readings[index];
-    sensor_readings[index] = sensor_reading;
-
-    auto pressure = get_pressure(sensor_reading);
-    auto last_pressure = get_pressure(last_sensor_reading);
-
-    if (pressure > 0)
-    {
-        if (last_pressure == 0)
-        {
-            usbMIDI.sendNoteOn(note, pressure, 0);
-
-#ifdef LOG_KEY_PRESSES
-            Serial.print(index);
-            Serial.print(" note on, velocity ");
-            Serial.println(pressure);
-#endif
-        }
-        else
-        {
-            // LMMS > Triple Oscillator > HugeGrittyBass responds to PolyPressure messages.
-            usbMIDI.sendPolyPressure(note, pressure, 0);
-
-            // In practice, polyphonic pressure control of each individual key probably won't be useful. Instead will probably want to control all notes via a single foot pedal. I tried sendAfterTouch(), but it didn't seem to respond. As a workaround, doing this by connecting the volume knob in LMMS to the controller.
-            // usbMIDI.sendControlChange(7, pressure, 0);
-
-#ifdef LOG_KEY_PRESSES
-            Serial.print(index);
-            Serial.print(" poly pressure ");
-            Serial.println(pressure);
-#endif
-        }
-    }
-    else
-    {
-        if (last_pressure > 0)
-        {
-            usbMIDI.sendNoteOff(note, 0, 0);
-
-#ifdef LOG_KEY_PRESSES
-            Serial.print(index);
-            Serial.println(" note off.");
-#endif
-        }
-    }
-}
-
-void handle_sensor_reading_calibration(uint8_t index, int32_t sensor_reading)
-{
-    if (sensor_reading < config.calibration_result.min_sensor_readings[index])
-    {
-        config.calibration_result.min_sensor_readings[index] = sensor_reading;
-    }
-
-    if (sensor_reading > config.calibration_result.max_sensor_readings[index])
-    {
-        config.calibration_result.max_sensor_readings[index] = sensor_reading;
-    }
-}
-
 void handle_sensor_reading(uint8_t index, int32_t sensor_reading)
 {
-    if (calibrating)
+    if (config.calibrating)
     {
-        handle_sensor_reading_calibration(index, sensor_reading);
+        config.handle_sensor_reading(index, sensor_reading);
         return;
     }
 
     switch (config.playing_mode)
     {
     case PlayingMode::VelocitySensing:
-        handle_sensor_reading_velocity(index, sensor_reading);
+        velocity_sensor.handle_sensor_reading(index, sensor_reading);
         return;
 
     case PlayingMode::PressureSensing:
-        handle_sensor_reading_pressure(index, sensor_reading);
+        pressure_sensor.handle_sensor_reading(index, sensor_reading);
         return;
 
     default:
         Serial.print("Unexpected mode, this is a bug: ");
         Serial.println(static_cast<int>(config.playing_mode));
         return;
-    }
-}
-
-void begin_calibrating()
-{
-    if (calibrating)
-    {
-        Serial.println("Received command to begin calibration, but calibration is already in progress, so doing nothing.");
-    }
-    else
-    {
-        fill_array(config.calibration_result.min_sensor_readings, std::numeric_limits<int32_t>::max());
-        fill_array(config.calibration_result.max_sensor_readings, std::numeric_limits<int32_t>::min());
-        calibrating = true;
-        Serial.println("Beginning calibration.");
-    }
-}
-
-void complete_calibrating()
-{
-    if (calibrating)
-    {
-        calibrating = false;
-        Serial.println("Saving calibration results.");
-        save_config();
-    }
-    else
-    {
-        Serial.println("Received command to complete calibration, but calibration was never begun, so doing nothing.");
-    }
-}
-
-void cancel_calibrating()
-{
-    if (calibrating)
-    {
-        calibrating = false;
-        Serial.println("Discarding calibration results.");
-        load_config();
-    }
-    else
-    {
-        Serial.println("Received command to cancel calibration, but calibration was never begun, so doing nothing.");
     }
 }
 
@@ -526,7 +147,7 @@ void setup()
     setup_adc(*adc.adc0);
     setup_adc(*adc.adc1);
 
-    load_config();
+    config.load();
 }
 
 std::vector<int> commands = {};
@@ -540,23 +161,23 @@ void loop()
         switch (static_cast<Command>(command))
         {
         case Command::BeginCalibrating:
-            begin_calibrating();
+            config.begin_calibrating();
             break;
 
         case Command::CompleteCalibrating:
-            complete_calibrating();
+            config.complete_calibrating();
             break;
 
         case Command::CancelCalibrating:
-            cancel_calibrating();
+            config.cancel_calibrating();
             break;
 
         case Command::EnableVelocitySensing:
-            set_playing_mode(PlayingMode::VelocitySensing);
+            config.set_playing_mode(PlayingMode::VelocitySensing);
             break;
 
         case Command::EnablePressureSensing:
-            set_playing_mode(PlayingMode::PressureSensing);
+            config.set_playing_mode(PlayingMode::PressureSensing);
             break;
 
         default:
@@ -640,7 +261,21 @@ void loop()
 
 #ifdef LOG_SENSOR_READINGS
     Serial.print("Sensor readings: ");
-    print_array(sensor_readings);
+    switch (config.playing_mode)
+    {
+    case PlayingMode::VelocitySensing:
+        print_array(velocity_sensor.sensor_readings);
+        break;
+
+    case PlayingMode::PressureSensing:
+        print_array(pressure_sensor.sensor_readings);
+        break;
+
+    default:
+        Serial.print("Unexpected mode, this is a bug: ");
+        Serial.println(static_cast<int>(config.playing_mode));
+        return;
+    }
 #endif
 
     print_errors(*adc.adc0);
