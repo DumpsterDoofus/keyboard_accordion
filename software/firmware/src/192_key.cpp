@@ -48,7 +48,12 @@ const int multiplexer_outputs[4] = {
     // 36,
 };
 
+const int index_to_note[192] = {
+    // TODO: Figure this out once hardware arrives.
+};
+
 int32_t sensor_readings[192];
+float_t max_velocities[192];
 
 // If the sensors are being "factory calibrated".
 bool calibrating = false;
@@ -289,16 +294,6 @@ bool truth_table(uint8_t multiplexer_channel, uint8_t control)
     return (multiplexer_channel & mask) != 0;
 }
 
-uint8_t get_velocity(int32_t reading_1, int32_t reading_2)
-{
-    const float velocity_multiplier = 2.0;
-
-    auto velocity_float = velocity_multiplier * (reading_1 - reading_2);
-    auto velocity_int = static_cast<int>(std::round(velocity_float));
-    // MIDI velocity range is 0 to 127. Anything higher than 127 will alias down into the 0-127 range. See https://arduinomidilib.sourceforge.net/a00001.html.
-    return static_cast<uint8_t>(std::clamp(velocity_int, 0, 127));
-}
-
 uint8_t get_pressure(int32_t reading)
 {
     // TODO: Read from calibration
@@ -313,30 +308,70 @@ uint8_t get_pressure(int32_t reading)
 
 void handle_sensor_reading_velocity(uint8_t index, int32_t sensor_reading)
 {
-    const uint8_t note = 60;
-
     auto last_sensor_reading = sensor_readings[index];
     sensor_readings[index] = sensor_reading;
 
-    // TODO: Hardcoded to 350, get from calibration instead
-    if (sensor_reading <= 350 && 350 < last_sensor_reading)
+    // 0 is fully unpressed, 1 is fully pressed.
+    auto displacement = (sensor_reading - config.calibration_result.min_sensor_readings[index]) / static_cast<float>(config.calibration_result.max_sensor_readings[index] - config.calibration_result.min_sensor_readings[index]);
+
+    auto velocity = sensor_reading - last_sensor_reading;
+    auto max_velocity = max_velocities[index];
+
+    // Max velocity encodes 3 states:
+    // == 0 means key is "not yet pressed"
+    // > 0 means key is "being pressed"
+    // == -1 means key is "being released"
+    if (max_velocity >= 0)
     {
-        auto velocity = get_velocity(last_sensor_reading, sensor_reading);
-        usbMIDI.sendNoteOn(note, velocity, 0);
+        // Transition into "being pressed" when key is at least 10% pressed, to ignore noise in the unpressed state.
+        if (displacement > 0.1f)
+        {
+            if (velocity > max_velocity)
+            {
+                max_velocity = velocity;
+                max_velocities[index] = velocity;
+            }
+        }
+        // The "actuation point" is when the key is at least 90% pressed or it begins moving backwards while in "being pressed".
+        if (displacement > 0.9f || velocity <= 0 && max_velocity > 0)
+        {
+            // Transition to "being released".
+            max_velocities[index] = -1.0f;
+
+            // TODO: Need to tune this based off actual velocity from testing.
+            const float velocity_multiplier = 1.0f;
+
+            // MIDI velocity range is 0 to 127. Anything higher than 127 will alias down into the 0-127 range. See https://arduinomidilib.sourceforge.net/a00001.html.
+            auto midi_velocity = static_cast<uint8_t>(std::clamp(static_cast<int>(std::round(velocity_multiplier * displacement * max_velocity)), 0, 127));
+            auto note = index_to_note[index];
+            usbMIDI.sendNoteOn(note, midi_velocity, 0);
 
 #ifdef LOG_KEY_PRESSES
-        Serial.print("Sent note on with velocity ");
-        Serial.print(velocity);
-        Serial.println('.');
+            Serial.print("Sent note ");
+            Serial.print(note);
+            Serial.print(" on with velocity ");
+            Serial.print(midi_velocity);
+            Serial.println('.');
 #endif
+        }
     }
-    if (last_sensor_reading <= 350 && 350 < sensor_reading)
+    // Key is "being released".
+    else
     {
-        usbMIDI.sendNoteOff(note, 0, 0);
+        if (displacement < 0.1f)
+        {
+            // Transition to "not yet pressed".
+            max_velocities[index] = 0.0f;
+
+            auto note = index_to_note[index];
+            usbMIDI.sendNoteOff(note, 0, 0);
 
 #ifdef LOG_KEY_PRESSES
-        Serial.println("Sent note off.");
+            Serial.print("Sent note ");
+            Serial.print(note);
+            Serial.println(" off.");
 #endif
+        }
     }
 }
 
