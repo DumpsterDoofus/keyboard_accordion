@@ -213,7 +213,7 @@ void loop()
 
     // powered = true;
 
-    auto elapsed = millis();
+    auto elapsed = micros();
     for (uint8_t multiplexer_channel = 0; multiplexer_channel < 16; multiplexer_channel++)
     {
         for (uint8_t multiplexer_output = 0; multiplexer_output < 4; multiplexer_output++)
@@ -228,25 +228,28 @@ void loop()
                 multiplexer_inputs[multiplexer_input + 1]);
 
             handle_sensor_reading((multiplexer_input + 0) * 16 + multiplexer_channel, sensor_reading.result_adc0);
+            handle_sensor_reading((multiplexer_input + 1) * 16 + multiplexer_channel, sensor_reading.result_adc1);
+#ifdef LOG_SENSOR_READINGS
             Serial.print("Multiplexer ");
             Serial.print(multiplexer_input);
             Serial.print(" channel ");
             Serial.print(multiplexer_channel);
             Serial.print(" sensor reading: ");
             Serial.println(sensor_reading.result_adc0);
-            handle_sensor_reading((multiplexer_input + 1) * 16 + multiplexer_channel, sensor_reading.result_adc1);
+
             Serial.print("Multiplexer ");
             Serial.print(multiplexer_input + 1);
             Serial.print(" channel ");
             Serial.print(multiplexer_channel);
             Serial.print(" sensor reading: ");
             Serial.println(sensor_reading.result_adc1);
+#endif
         }
     }
-    elapsed = millis() - elapsed;
+    elapsed = micros() - elapsed;
 
 #ifdef LOG_LATENCY
-    Serial.print("Elapsed milliseconds: ");
+    Serial.print("Elapsed microseconds: ");
     Serial.println(elapsed);
 #endif
 

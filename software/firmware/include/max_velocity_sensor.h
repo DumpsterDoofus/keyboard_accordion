@@ -20,9 +20,10 @@ struct MaxVelocitySensor
         sensor_readings[index] = sensor_reading;
 
         // 0 is fully unpressed, 1 is fully pressed.
-        auto displacement = (sensor_reading - config.calibration_result.min_sensor_readings[index]) / static_cast<float>(config.calibration_result.max_sensor_readings[index] - config.calibration_result.min_sensor_readings[index]);
+        auto displacement = 1 - (sensor_reading - config.calibration_result.min_sensor_readings[index]) / static_cast<float>(config.calibration_result.max_sensor_readings[index] - config.calibration_result.min_sensor_readings[index]);
 
-        auto velocity = sensor_reading - last_sensor_reading;
+        // Multiply by -1 because the sensor reading decreases as the key is pressed.
+        auto velocity = -1 * (sensor_reading - last_sensor_reading);
         auto max_velocity = max_velocities[index];
 
         // Max velocity encodes 3 states:
