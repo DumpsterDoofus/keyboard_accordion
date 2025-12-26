@@ -1,5 +1,6 @@
 #pragma once
-#include "config.cpp"
+
+#include "config.h"
 
 struct MeanVelocitySensor
 {
@@ -42,7 +43,7 @@ struct MeanVelocitySensor
                 }
             }
             // The "actuation point" is when the key is at least 90% pressed or it begins moving backwards while in "being pressed".
-            if (displacement > 0.9f || velocity <= 0 && velocity_count > 0)
+            if (displacement > 0.9f || (velocity <= 0 && velocity_count > 0))
             {
                 // Transition to "being released".
                 velocity_counts[index] = -1;

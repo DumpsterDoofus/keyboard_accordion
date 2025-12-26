@@ -2,9 +2,9 @@
 #include <ADC_util.h>
 #include <ADC_Module.h>
 
-#include "max_velocity_sensor.cpp"
-#include "mean_velocity_sensor.cpp"
-#include "pressure_sensor.cpp"
+#include "max_velocity_sensor.h"
+#include "mean_velocity_sensor.h"
+#include "pressure_sensor.h"
 
 // This detects whether the PCB is powered by the external AC adapter.
 const int dc_power_input = 37; // TODO: 35 for 192-key
@@ -271,7 +271,4 @@ void loop()
 
     print_errors(*adc.adc0);
     print_errors(*adc.adc1);
-
-    // This won't be present in the 192-key board. Only doing this in the 3-key board to limit sample rate to a manageable level.
-    delay(5);
 }

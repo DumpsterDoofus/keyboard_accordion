@@ -1,5 +1,6 @@
 #pragma once
-#include "config.cpp"
+
+#include "config.h"
 
 struct MaxVelocitySensor
 {
@@ -40,7 +41,7 @@ struct MaxVelocitySensor
                 }
             }
             // The "actuation point" is when the key is at least 90% pressed or it begins moving backwards while in "being pressed".
-            if (displacement > 0.9f || velocity <= 0 && max_velocity > 0)
+            if (displacement > 0.9f || (velocity <= 0 && max_velocity > 0))
             {
                 // Transition to "being released".
                 max_velocities[index] = -1.0f;

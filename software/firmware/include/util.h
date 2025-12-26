@@ -1,4 +1,5 @@
 #pragma once
+
 #include <Arduino.h>
 
 // Logs total time used to read all the keys.
