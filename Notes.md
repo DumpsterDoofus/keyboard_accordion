@@ -104,6 +104,11 @@ https://wooting.io/product/lekker-spring-packs
 https://wooting.io/product/blank-switch-toolkit
 https://youtu.be/WN_-GYLTfpY?t=279
 
+Steel balls, which could be used to weight keycaps:
+    5/8" (15.875 mm, 16.35 g) https://www.amazon.com/Inch-Carbon-Steel-Bearings-G500-15/dp/B01MRI95KS/ref=ast_sto_dp_puis?th=1
+    17/32" (13.49 mm, 10.04 g) https://www.amazon.com/Chrome-Steel-Bearings-G25-50-Balls/dp/B01N03A5SJ/ref=ast_sto_dp_puis?th=1
+    1 G of acceleration is enough to move 4 mm (the return travel distance) in 1/35 of a second. So with a 40 g spring return force, we could go as high as 20 g of key weight and still be able to have a reasonable key return time.
+
 ## Power
 
 The Teensy has a 3.3V output, but a commenter suggested to avoid using it for large current draw (https://forum.pjrc.com/index.php?threads/beginner-schematic-review-hall-effect-keyboard.76407/post-354362). So instead am going to power Teensy with USB, and other components with 5V DC power adapter dropped to 3.3V using a linear regulator.

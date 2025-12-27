@@ -2,18 +2,9 @@
 #include <ADC_util.h>
 #include <ADC_Module.h>
 
-#include "config.cpp"
-#include "velocity_sensor.cpp"
-#include "pressure_sensor.cpp"
-
-// Logs total time used to read all the keys.
-#define LOG_LATENCY
-
-// Logs each individual key press.
-#define LOG_KEY_PRESSES
-
-// Logs all keys in CSV format.
-#define LOG_SENSOR_READINGS
+#include "max_velocity_sensor.h"
+#include "mean_velocity_sensor.h"
+#include "pressure_sensor.h"
 
 // This detects whether the PCB is powered by the external AC adapter.
 const int dc_power_input = 37; // TODO: 35 for 192-key
@@ -68,7 +59,7 @@ enum class Command
 };
 
 Config config;
-VelocitySensor velocity_sensor{config};
+MaxVelocitySensor velocity_sensor{config};
 PressureSensor pressure_sensor{config};
 
 ADC &adc = *new ADC();
@@ -222,7 +213,7 @@ void loop()
 
     // powered = true;
 
-    auto elapsed = millis();
+    auto elapsed = micros();
     for (uint8_t multiplexer_channel = 0; multiplexer_channel < 16; multiplexer_channel++)
     {
         for (uint8_t multiplexer_output = 0; multiplexer_output < 4; multiplexer_output++)
@@ -237,25 +228,28 @@ void loop()
                 multiplexer_inputs[multiplexer_input + 1]);
 
             handle_sensor_reading((multiplexer_input + 0) * 16 + multiplexer_channel, sensor_reading.result_adc0);
+            handle_sensor_reading((multiplexer_input + 1) * 16 + multiplexer_channel, sensor_reading.result_adc1);
+#ifdef LOG_SENSOR_READINGS
             Serial.print("Multiplexer ");
             Serial.print(multiplexer_input);
             Serial.print(" channel ");
             Serial.print(multiplexer_channel);
             Serial.print(" sensor reading: ");
             Serial.println(sensor_reading.result_adc0);
-            handle_sensor_reading((multiplexer_input + 1) * 16 + multiplexer_channel, sensor_reading.result_adc1);
+
             Serial.print("Multiplexer ");
             Serial.print(multiplexer_input + 1);
             Serial.print(" channel ");
             Serial.print(multiplexer_channel);
             Serial.print(" sensor reading: ");
             Serial.println(sensor_reading.result_adc1);
+#endif
         }
     }
-    elapsed = millis() - elapsed;
+    elapsed = micros() - elapsed;
 
 #ifdef LOG_LATENCY
-    Serial.print("Elapsed milliseconds: ");
+    Serial.print("Elapsed microseconds: ");
     Serial.println(elapsed);
 #endif
 
@@ -280,7 +274,4 @@ void loop()
 
     print_errors(*adc.adc0);
     print_errors(*adc.adc1);
-
-    // This won't be present in the 192-key board. Only doing this in the 3-key board to limit sample rate to a manageable level.
-    delay(5);
 }

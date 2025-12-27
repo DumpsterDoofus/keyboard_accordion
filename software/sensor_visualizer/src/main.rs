@@ -10,6 +10,7 @@ use std::thread;
 use std::thread::JoinHandle;
 use std::time::Duration;
 
+use macroquad::color;
 use macroquad::prelude::*;
 
 #[macroquad::main(window_conf)]
@@ -34,15 +35,15 @@ async fn main() {
 
         clear_background(BLACK);
 
+        let mut colors = Vec::<Color>::new();
+        for i in 0..192 {
+            colors.push(color::hsl_to_rgb(i as f32 / 192.0, 1.0, 0.5));
+        }
+
         for (pos, numbers) in positions.iter().enumerate() {
-            // let start_index = 0; // 3-key
-            let start_index = 112; // 192-key
-            let s1 = numbers[start_index + 0];
-            let s2 = numbers[start_index + 1];
-            let s3 = numbers[start_index + 2];
-            draw_circle(2.0f32 * pos as f32, 3.7f32 * (s1 - 280.0f32), 2.0, RED);
-            draw_circle(2.0f32 * pos as f32, 3.7f32 * (s2 - 280.0f32), 2.0, GREEN);
-            draw_circle(2.0f32 * pos as f32, 3.7f32 * (s3 - 280.0f32), 2.0, BLUE);
+            for (number, color) in numbers.iter().zip(colors.iter()) {
+                draw_rectangle(2.0f32 * pos as f32, 3.7f32 * (number - 280.0f32), 2.0, 2.0, *color);
+            }
         }
 
         next_frame().await;
