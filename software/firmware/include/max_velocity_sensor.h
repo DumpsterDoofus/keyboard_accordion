@@ -48,7 +48,7 @@ struct MaxVelocitySensor
                 max_velocities[index] = -1.0f;
 
                 // TODO: Need to tune this based off actual velocity from testing.
-                const float velocity_multiplier = 1.0f;
+                const float velocity_multiplier = 2.0f;
 
                 // MIDI velocity range is 0 to 127. Anything higher than 127 will alias down into the 0-127 range. See https://arduinomidilib.sourceforge.net/a00001.html.
                 auto midi_velocity = static_cast<uint8_t>(std::clamp(static_cast<int>(std::round(velocity_multiplier * displacement * max_velocity)), 0, 127));
