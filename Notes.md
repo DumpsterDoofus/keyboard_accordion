@@ -15,7 +15,7 @@ On the mechanical keyboard, there is a little space between the switches, so we 
 Going to try 800 mil = 20.32 mm horizontal spacing and 800 mil * sin(2*pi/6) = 17.5976 mm vertical spacing.
 
 https://en.wikipedia.org/wiki/Scientific_pitch_notation
-    88 keys on normal keyboard (MIDI number 21-108 in table), we could do 96 (MIDI Number 17-112, F0-E8, 8 octaves).
+    88 keys on normal keyboard (MIDI number 21-108 in table). For B system accordion, first note is leftmost of row 3, and can either be C, D#, F#, or A. We could do 96 (MIDI Number 15-110, D#0-D8, 8 octaves).
 https://remcycles.net/blog/cba_keyboard.html
     Uses mechanical switches instead of Hall effect switches, no links to PCB designs, although could maybe contact him
 https://wooting.io/product/lekker-switch-linear60
