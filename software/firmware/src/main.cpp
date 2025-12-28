@@ -59,7 +59,7 @@ enum class Command
 };
 
 Config config;
-MaxVelocitySensor velocity_sensor{config};
+MeanVelocitySensor velocity_sensor{config};
 PressureSensor pressure_sensor{config};
 
 ADC &adc = *new ADC();
@@ -96,6 +96,11 @@ bool truth_table(uint8_t multiplexer_channel, uint8_t control)
 
 void handle_sensor_reading(uint8_t index, int32_t sensor_reading)
 {
+    // TODO: Remove
+    if (index != 112)
+    {
+        return;
+    }
     if (config.calibrating)
     {
         config.handle_sensor_reading(index, sensor_reading);
@@ -139,6 +144,9 @@ void setup()
     setup_adc(*adc.adc1);
 
     config.load();
+
+    // TODO: Remove
+    config.index_to_midi_note[112] = 60;
 }
 
 std::vector<int> commands = {};
