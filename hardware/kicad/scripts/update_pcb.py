@@ -15,7 +15,7 @@ import csv
 #         for row in csv.reader(f)
 #     ]
 
-pcb_path = 'kicad/96_key/96_key.kicad_pcb'
+pcb_path = '96_key/96_key.kicad_pcb'
 board: pcbnew.BOARD = pcbnew.LoadBoard(pcb_path)
 
 i = 28
