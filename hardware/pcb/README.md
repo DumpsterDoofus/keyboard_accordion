@@ -1,8 +1,8 @@
-# Hardware
+# KiCad schematics/PCBs
 
 ### To view schematic/PCB
 
-You can open the KiCad project at `kicad/3_key` to view the schematic/PCB.
+You can open these KiCad projects to view the schematic/PCB.
 
 For the PCB, if you want 3D models of parts to render, in Preferences > Configure Paths, define a variable named `EASYEDA2KICAD` with value `${KIPRJMOD}/../library`.
 
