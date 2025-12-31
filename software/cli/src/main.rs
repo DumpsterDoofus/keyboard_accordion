@@ -40,6 +40,15 @@ enum Command {
     /// Discards sensor calibration results and restores the old calibration results.
     CancelCalibrating,
 
+    /// Uses B system (Eastern European) key layout.
+    UseBSystemLayout,
+
+    /// Uses C system (Western European) key layout.
+    UseCSystemLayout,
+
+    /// Resets settings to default values.
+    FactoryReset,
+
     /// Logs the serial output to a file. This can be used for debugging.
     Log {
         /// Where the logs will be written.
@@ -67,6 +76,9 @@ fn main() -> Result<()> {
         Command::CancelCalibrating => send(serial_port, 2),
         Command::UseVelocitySensing => send(serial_port, 3),
         Command::UsePressureSensing => send(serial_port, 4),
+        Command::UseBSystemLayout => send(serial_port, 5),
+        Command::UseCSystemLayout => send(serial_port, 6),
+        Command::FactoryReset => send(serial_port, 7),
         Command::Log { file_path } => log(serial_port, file_path),
     }
 }

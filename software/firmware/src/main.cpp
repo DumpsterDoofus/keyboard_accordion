@@ -2,12 +2,13 @@
 #include <ADC_util.h>
 #include <ADC_Module.h>
 
+#include "basic_sensor.h"
 #include "max_velocity_sensor.h"
 #include "mean_velocity_sensor.h"
 #include "pressure_sensor.h"
 
 // This detects whether the PCB is powered by the external AC adapter.
-const int dc_power_input = 37; // TODO: 35 for 192-key
+const int dc_power_input = 35;
 
 // These read the multiplexers (AM1 through AM12).
 const int multiplexer_inputs[12] = {
@@ -27,15 +28,10 @@ const int multiplexer_inputs[12] = {
 
 // These control the multiplexers (CONTROL1 through CONTROL4).
 const int multiplexer_outputs[4] = {
+    39,
+    38,
+    37,
     36,
-    35,
-    34,
-    33,
-    // TODO: For 192-key, use below.
-    // 39,
-    // 38,
-    // 37,
-    // 36,
 };
 
 bool powered;
@@ -56,11 +52,21 @@ enum class Command
 
     // Switches to polytonic-aftertouch mode.
     EnablePressureSensing = 4,
+
+    // Uses B system (Eastern European) key layout.
+    UseBSystemLayout = 5,
+
+    // Uses C system (Western European) key layout.
+    UseCSystemLayout = 6,
+
+    // Resets settings to default values.
+    FactoryReset = 7,
 };
 
 Config config;
 MeanVelocitySensor velocity_sensor{config};
 PressureSensor pressure_sensor{config};
+BasicSensor basic_sensor{config};
 
 ADC &adc = *new ADC();
 
@@ -96,11 +102,6 @@ bool truth_table(uint8_t multiplexer_channel, uint8_t control)
 
 void handle_sensor_reading(uint8_t index, int32_t sensor_reading)
 {
-    // TODO: Remove
-    if (index != 112)
-    {
-        return;
-    }
     if (config.calibrating)
     {
         config.handle_sensor_reading(index, sensor_reading);
@@ -115,6 +116,10 @@ void handle_sensor_reading(uint8_t index, int32_t sensor_reading)
 
     case PlayingMode::PressureSensing:
         pressure_sensor.handle_sensor_reading(index, sensor_reading);
+        return;
+
+    case PlayingMode::BasicSensing:
+        basic_sensor.handle_sensor_reading(index, sensor_reading);
         return;
 
     default:
@@ -144,9 +149,6 @@ void setup()
     setup_adc(*adc.adc1);
 
     config.load();
-
-    // TODO: Remove
-    config.index_to_midi_note[112] = 60;
 }
 
 std::vector<int> commands = {};
@@ -177,6 +179,18 @@ void loop()
 
         case Command::EnablePressureSensing:
             config.set_playing_mode(PlayingMode::PressureSensing);
+            break;
+
+        case Command::UseBSystemLayout:
+            config.use_b_system_layout();
+            break;
+
+        case Command::UseCSystemLayout:
+            config.use_c_system_layout();
+            break;
+
+        case Command::FactoryReset:
+            config.save_default_config();
             break;
 
         default:
@@ -235,23 +249,10 @@ void loop()
                 multiplexer_inputs[multiplexer_input + 0],
                 multiplexer_inputs[multiplexer_input + 1]);
 
-            handle_sensor_reading((multiplexer_input + 0) * 16 + multiplexer_channel, sensor_reading.result_adc0);
-            handle_sensor_reading((multiplexer_input + 1) * 16 + multiplexer_channel, sensor_reading.result_adc1);
-#ifdef LOG_SENSOR_READINGS
-            Serial.print("Multiplexer ");
-            Serial.print(multiplexer_input);
-            Serial.print(" channel ");
-            Serial.print(multiplexer_channel);
-            Serial.print(" sensor reading: ");
-            Serial.println(sensor_reading.result_adc0);
-
-            Serial.print("Multiplexer ");
-            Serial.print(multiplexer_input + 1);
-            Serial.print(" channel ");
-            Serial.print(multiplexer_channel);
-            Serial.print(" sensor reading: ");
-            Serial.println(sensor_reading.result_adc1);
-#endif
+            auto index0 = (multiplexer_input + 0) * 16 + multiplexer_channel;
+            auto index1 = (multiplexer_input + 1) * 16 + multiplexer_channel;
+            handle_sensor_reading(index0, sensor_reading.result_adc0);
+            handle_sensor_reading(index1, sensor_reading.result_adc1);
         }
     }
     elapsed = micros() - elapsed;
@@ -271,6 +272,10 @@ void loop()
 
     case PlayingMode::PressureSensing:
         print_array(pressure_sensor.sensor_readings);
+        break;
+
+    case PlayingMode::BasicSensing:
+        print_array(basic_sensor.sensor_readings);
         break;
 
     default:

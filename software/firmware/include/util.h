@@ -11,7 +11,8 @@
 // Logs all keys in CSV format.
 #define LOG_SENSOR_READINGS
 
-void print_array(int32_t (&array)[192])
+template<typename T, size_t N>
+void print_array(const T (&array)[N])
 {
     for (auto element : array)
     {
@@ -20,7 +21,6 @@ void print_array(int32_t (&array)[192])
     }
     Serial.println();
 }
-
 
 void fill_array(int32_t (&array)[192], int32_t value)
 {
