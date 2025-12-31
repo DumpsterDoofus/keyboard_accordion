@@ -18,10 +18,41 @@ import csv
 pcb_path = '96_key/96_key.kicad_pcb'
 board: pcbnew.BOARD = pcbnew.LoadBoard(pcb_path)
 
-i = 28
-while i >= 0:
-    board.FindFootprintByReference(f'H{i}').SetReference(f'H{i+1}')
-    i -= 1
+# i = 28
+# while i >= 0:
+#     board.FindFootprintByReference(f'H{i}').SetReference(f'H{i+1}')
+#     i -= 1
+
+
+# with open('key_plate.scad', 'w') as f:
+#     i = 1
+#     d = 24
+#     while i <= 96:
+#         footprint: pcbnew.FOOTPRINT = board.FindFootprintByReference(f'KEY{i}')
+#         x = footprint.GetX()/1000000
+#         y = footprint.GetY()/1000000
+#         f.write(f'a{i} = [[{x+7},{y+7}], [{x+7},{y-7}], [{x-7},{y-7}], [{x-7},{y+7}]];\n')
+#         f.write(f'b{i} = [{d+0}, {d+1}, {d+2}, {d+3}];\n')
+#         i += 1
+#         d += 4
+
+#     f.write('a = concat (')
+#     i = 0
+#     while i <= 96:
+#         f.write(f'a{i}')
+#         if i < 96:
+#             f.write(', ')
+#         i += 1
+#     f.write(');\n')
+
+#     f.write('b = [')
+#     i = 0
+#     while i <= 96:
+#         f.write(f'b{i}')
+#         if i < 96:
+#             f.write(', ')
+#         i += 1
+#     f.write('];\n')
 
 # index = 0
 # for footprint in board.GetFootprints():
@@ -78,4 +109,4 @@ while i >= 0:
 
 #             pad.SetNet(fixed_net)
 
-pcbnew.SaveBoard(pcb_path, board)
+# pcbnew.SaveBoard(pcb_path, board)
