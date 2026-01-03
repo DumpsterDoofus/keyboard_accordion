@@ -1,9 +1,14 @@
 # Case
 
-## key_plate
+The case is programmatically generated from the PCB.
 
-This is a simple key plate with the same outer shape and 1.6 mm thickness as the PCB, with 14mm x 14mm holes for the 96 keys. The `.3mf` file was produced with OpenSCAD:
+To regenerate the files, open [the PCB](../pcb/96_key/96_key.kicad_pcb) in KiCad, and run this:
 
 ```sh
-openscad key_plate.scad -o key_plate.3mf
+# This updates the .scad files.
+python3 pcb_to_scad.py
+
+# This converts the .scad files to .3mf.
+openscad bottom.scad -o bottom.3mf
+openscad top.scad -o top.3mf
 ```
