@@ -25,12 +25,6 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Command {
-    /// Switches to playing in velocity-sensitive mode (like a piano). Virtually all MIDI instruments support this.
-    UseVelocitySensing,
-
-    /// Switches to playing in polytonic-aftertouch mode (press distance of each key controls its volume). Very few MIDI instruments support this.
-    UsePressureSensing,
-
     /// Begins sensor calibration mode. Press each key down and up fully, and then either save the results via complete_calibrating, or discard the results with cancel_calibrating. Typically this only needs to be done once.
     BeginCalibrating,
 
@@ -39,6 +33,15 @@ enum Command {
 
     /// Discards sensor calibration results and restores the old calibration results.
     CancelCalibrating,
+
+    /// Switches to playing in basic on/off mode (like an organ).
+    UseBasicSensing,
+
+    /// Switches to playing in velocity-sensitive mode (like a piano). Virtually all MIDI instruments support this.
+    UseVelocitySensing,
+
+    /// Switches to playing in polytonic-aftertouch mode (press distance of each key controls its volume). Very few MIDI instruments support this.
+    UsePressureSensing,
 
     /// Uses B system (Eastern European) key layout.
     UseBSystemLayout,
@@ -74,11 +77,12 @@ fn main() -> Result<()> {
         Command::BeginCalibrating => send(serial_port, 0),
         Command::CompleteCalibrating => send(serial_port, 1),
         Command::CancelCalibrating => send(serial_port, 2),
-        Command::UseVelocitySensing => send(serial_port, 3),
-        Command::UsePressureSensing => send(serial_port, 4),
-        Command::UseBSystemLayout => send(serial_port, 5),
-        Command::UseCSystemLayout => send(serial_port, 6),
-        Command::FactoryReset => send(serial_port, 7),
+        Command::UseBasicSensing => send(serial_port, 3),
+        Command::UseVelocitySensing => send(serial_port, 4),
+        Command::UsePressureSensing => send(serial_port, 5),
+        Command::UseBSystemLayout => send(serial_port, 6),
+        Command::UseCSystemLayout => send(serial_port, 7),
+        Command::FactoryReset => send(serial_port, 8),
         Command::Log { file_path } => log(serial_port, file_path),
     }
 }

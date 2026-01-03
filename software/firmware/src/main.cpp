@@ -47,20 +47,23 @@ enum class Command
     // Cancels the sensor calibration procedure without saving the results.
     CancelCalibrating = 2,
 
+    // Switches to basic on/off mode.
+    EnableBasicSensing = 3,
+
     // Switches to velocity-sensitive mode.
-    EnableVelocitySensing = 3,
+    EnableVelocitySensing = 4,
 
     // Switches to polytonic-aftertouch mode.
-    EnablePressureSensing = 4,
+    EnablePressureSensing = 5,
 
     // Uses B system (Eastern European) key layout.
-    UseBSystemLayout = 5,
+    UseBSystemLayout = 6,
 
     // Uses C system (Western European) key layout.
-    UseCSystemLayout = 6,
+    UseCSystemLayout = 7,
 
     // Resets settings to default values.
-    FactoryReset = 7,
+    FactoryReset = 8,
 };
 
 Config config;
@@ -171,6 +174,10 @@ void loop()
 
         case Command::CancelCalibrating:
             config.cancel_calibrating();
+            break;
+
+        case Command::EnableBasicSensing:
+            config.set_playing_mode(PlayingMode::BasicSensing);
             break;
 
         case Command::EnableVelocitySensing:
