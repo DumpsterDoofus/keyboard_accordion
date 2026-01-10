@@ -27,11 +27,13 @@ board: pcbnew.BOARD = pcbnew.LoadBoard(pcb_path)
 # with open('key_plate.scad', 'w') as f:
 #     i = 1
 #     d = 24
+#     # Key width is 14 mm, but I found an additional 0.3 mm should be added to the key holes, otherwise the fit is too tight.
+#     w = 14 + 0.3
 #     while i <= 96:
 #         footprint: pcbnew.FOOTPRINT = board.FindFootprintByReference(f'KEY{i}')
 #         x = footprint.GetX()/1000000
 #         y = footprint.GetY()/1000000
-#         f.write(f'a{i} = [[{x+7},{y+7}], [{x+7},{y-7}], [{x-7},{y-7}], [{x-7},{y+7}]];\n')
+#         f.write(f'a{i} = [[{x+w/2}, {y+w/2}], [{x+w/2}, {y-w/2}], [{x-w/2}, {y-w/2}], [{x-w/2}, {y+w/2}]];\n')
 #         f.write(f'b{i} = [{d+0}, {d+1}, {d+2}, {d+3}];\n')
 #         i += 1
 #         d += 4
@@ -53,6 +55,11 @@ board: pcbnew.BOARD = pcbnew.LoadBoard(pcb_path)
 #             f.write(', ')
 #         i += 1
 #     f.write('];\n')
+
+#     f.write('linear_extrude(1.6) {\n')
+#     f.write('    polygon(a,b);\n')
+#     f.write('}\n')
+
 
 # index = 0
 # for footprint in board.GetFootprints():
