@@ -84,6 +84,8 @@ https://forum.pjrc.com/index.php?threads/high-speed-sampling-of-all-analog-chann
 https://www.facebook.com/groups/7662621407172676
     Discussion group
 
+https://www.midiaccordion.com/about/
+
 https://forum.pjrc.com/index.php?threads/16-channel-mux-or-switch-register-for-reading-keyswitches.59127/
     MCP23017 might be alternative to HC4067
 
@@ -243,6 +245,13 @@ Use nut on bottom of bottom plate?
 Or thread bottom plate?
 
 PCB height is approx 4.9"
+
+## Redesign
+
+https://datasheets.raspberrypi.com/rp2350/hardware-design-with-rp2350.pdf
+https://gitlab.com/kicad/libraries/kicad-symbols/-/merge_requests/4650
+https://deepbluembedded.com/rp2350-hardware-pcb-design-in-kicad-rp2350-schematic/
+https://jlcpcb.com/partdetail/RaspberryPi-RP2350A/C42411118 see notes about PCB layout
 
 ## Laser cutting
 
