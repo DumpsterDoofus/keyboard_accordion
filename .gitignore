@@ -4,5 +4,6 @@ temp/
 *backups
 logs
 *.log
-
+.venv
 **/target
+.DS_Store
