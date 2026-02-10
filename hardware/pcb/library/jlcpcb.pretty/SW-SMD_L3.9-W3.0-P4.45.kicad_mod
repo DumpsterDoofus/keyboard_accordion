@@ -1,27 +1,170 @@
-(module easyeda2kicad:SW-SMD_L3.9-W3.0-P4.45 (layer F.Cu) (tedit 5DC5F6A4)
+(footprint "SW-SMD_L3.9-W3.0-P4.45"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -4 0)
+		(layer "F.SilkS")
+		(uuid "97ba5df4-82b0-4586-b635-c937d63a11b9")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "SW-SMD_L3.9-W3.0-P4.45"
+		(at 0 4 0)
+		(layer "F.Fab")
+		(uuid "73d88f06-c33c-4228-9b0c-501ea1a9855c")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "31e818d5-018c-403e-815e-444c2bc492c0")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "0ee6677c-99a7-4842-90a6-7ee2eaa39edb")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
 	(attr smd)
-	(fp_text reference REF** (at 0 -4.0) (layer F.SilkS)
-		(effects (font (size 1 1) (thickness 0.15)))
+	(fp_line
+		(start -2.03 -1.54)
+		(end -2.03 -1.11)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "28cfa2f8-3a55-444a-a7ed-5faacac53fe5")
 	)
-	(fp_text value SW-SMD_L3.9-W3.0-P4.45 (at 0 4.0) (layer F.Fab)
-		(effects (font (size 1 1) (thickness 0.15)))
+	(fp_line
+		(start -2.03 1.54)
+		(end -2.03 1.11)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "69991f3c-e160-4dd3-9147-5419a56278e1")
 	)
-	(fp_text user %R (at 0 0) (layer F.Fab)
-		(effects (font (size 1 1) (thickness 0.15)))
+	(fp_line
+		(start 2.03 -1.54)
+		(end -2.03 -1.54)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "d839aabb-c96a-4bac-96db-c615fc6a1f78")
 	)
-	(fp_line (start -2.03 -1.54) (end -2.03 -1.11) (layer F.SilkS) (width 0.15))
-	(fp_line (start -2.03 1.54) (end -2.03 1.11) (layer F.SilkS) (width 0.15))
-	(fp_line (start 2.03 1.11) (end 2.03 1.54) (layer F.SilkS) (width 0.15))
-	(fp_line (start 2.03 -1.54) (end 2.03 -1.11) (layer F.SilkS) (width 0.15))
-	(fp_line (start 2.03 -1.54) (end -2.03 -1.54) (layer F.SilkS) (width 0.15))
-	(fp_line (start 2.03 1.54) (end -2.03 1.54) (layer F.SilkS) (width 0.15))
-	(pad 1 smd rect (at -2.18 0.00 0.00) (size 1.23 1.86) (layers F.Cu F.Paste F.Mask))
-	(pad 2 smd rect (at 2.18 0.00 0.00) (size 1.23 1.86) (layers F.Cu F.Paste F.Mask))
-	(fp_circle (center 2.50 -1.47) (end 2.53 -1.47) (layer F.Fab) (width 0.06))
-	(fp_circle (center 0.00 0.00) (end 0.90 0.00) (layer F.SilkS) (width 0.25))
-	(model "library/jlcpcb.3dshapes/SW-SMD_L3.9-W2.9-H2.0-LS4.8.wrl"
-		(offset (xyz 0.000 -0.000 -0.000))
-		(scale (xyz 1 1 1))
-		(rotate (xyz 0 0 0))
+	(fp_line
+		(start 2.03 -1.54)
+		(end 2.03 -1.11)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "6098f599-3f08-4ae1-9bb4-969be7b1429f")
+	)
+	(fp_line
+		(start 2.03 1.11)
+		(end 2.03 1.54)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "489aedef-9b02-4b8b-923a-c6461582049a")
+	)
+	(fp_line
+		(start 2.03 1.54)
+		(end -2.03 1.54)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "632266cb-4d7e-4244-8675-d92325ec8848")
+	)
+	(fp_circle
+		(center 0 0)
+		(end 0.9 0)
+		(stroke
+			(width 0.25)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "5b520851-e4e5-4fbc-97e9-6d3f27a68ab3")
+	)
+	(fp_circle
+		(center 2.5 -1.47)
+		(end 2.53 -1.47)
+		(stroke
+			(width 0.06)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "d7b2d4ca-7e6a-4d25-98e8-008f9e1f53ba")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "ffc70e22-b8cd-4d5c-a184-b7f9c64652a8")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -2.18 0)
+		(size 1.23 1.86)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "3ba4e400-78d0-4872-b857-a0834197d6d9")
+	)
+	(pad "2" smd rect
+		(at 2.18 0)
+		(size 1.23 1.86)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "af932d71-408d-4e8e-b43e-9a079e49cac4")
+	)
+	(embedded_fonts no)
+	(model "../library/jlcpcb.3dshapes/SW-SMD_L3.9-W2.9-H2.0-LS4.8.wrl"
+		(offset
+			(xyz 0 -0 -0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
 	)
 )
