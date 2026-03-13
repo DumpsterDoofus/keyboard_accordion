@@ -110,10 +110,13 @@ lcsc_ids=(
     "C168807"
 
     # ADC
-    "C2866175"
+    # TI TLA2528IRTER: Cheaper, out of stock, I2C
+    # "C2866175"
+    # TLA2518IRTET (or TLA2518IRTER, just differ in spool size?): More expensive, SPI
+    "C1855739"
 
     # 8-channel multiplexer
-    "C3007952"
+    "C41378167"
 
     # 1A LDO regulator
     "C507885"
@@ -124,6 +127,6 @@ lcsc_ids=(
 
 for lcsc_id in "${lcsc_ids[@]}"; do
     # TODO: See note about 3D model incorrect offsets.
-    easyeda2kicad --full --output library/jlcpcb --lcsc_id="$lcsc_id"
-    # JLC2KiCadLib -dir library/jlcpcb -symbol_lib symbols $lcsc_id
+    easyeda2kicad --full --output ../library/jlcpcb --lcsc_id="$lcsc_id"
+    # JLC2KiCadLib -dir ../library/jlcpcb -symbol_lib symbols $lcsc_id
 done

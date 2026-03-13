@@ -98,7 +98,7 @@ class NoteTrainer:
             # s.append(clef.TrebleClef()) 
             # s.append(n)
             
-            n.write('musicxml.png', fp=f'images/{self.current_note}.png')        # Load and display the image
+            n.write('musicxml.png', fp=f'{IMAGE_DIR}/{self.current_note}.png')        # Load and display the image
         if not os.path.exists(img_path):
             raise ValueError('Failed to create ' + img_path)
         img = Image.open(img_path)
@@ -120,6 +120,7 @@ class NoteTrainer:
 
 # Start the App
 if __name__ == "__main__":
+    os.makedirs(IMAGE_DIR, exist_ok=True)
     root = tk.Tk()
     app = NoteTrainer(root)
     root.mainloop()
